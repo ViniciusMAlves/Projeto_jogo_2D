@@ -1,18 +1,20 @@
-extends KinematicBody2D
+extends CharacterBody2D
 
-var velocity = Vector2.ZERO
+#var velocity = Vector2.ZERO
 var move_speed = 480
 var gravity = 1200
 var jump_force = -720
 var is_grounded
-onready var raycasts = $raycasts
+@onready var raycasts = $raycasts
 
 func _physics_process(delta):	
 	velocity.y += gravity * delta	
 	
 	_get_input()
 	
-	velocity =  move_and_slide(velocity)
+	set_velocity(velocity)
+	move_and_slide()
+	velocity =  velocity
 	
 	is_grounded = _check_is_ground()
 	
@@ -20,7 +22,7 @@ func _physics_process(delta):
 
 func _get_input():
 	velocity.x = 0
-	var move_direction = int(Input.is_action_pressed("move_right")) - int(Input.is_action_pressed("move_left"))	
+	var move_direction = float(Input.is_action_pressed("move_right")) - float(Input.is_action_pressed("move_left"))	
 	velocity.x = lerp(velocity.x, move_speed * move_direction, 0.2)
 	
 	if move_direction != 0:
