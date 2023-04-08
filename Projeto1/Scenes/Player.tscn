@@ -1,10 +1,13 @@
-[gd_scene load_steps=13 format=3 uid="uid://ciqdx7x3gsy1d"]
+[gd_scene load_steps=17 format=3 uid="uid://ciqdx7x3gsy1d"]
 
 [ext_resource type="Texture2D" uid="uid://bbsmb3otqj06d" path="res://Assets/Scenes/Main Characters/Virtual Guy/Idle (32x32).png" id="1"]
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="2"]
-[ext_resource type="Texture2D" uid="uid://bw7ox11mgq1ip" path="res://Assets/Scenes/Main Characters/Virtual Guy/Hit (32x32).png" id="3"]
-[ext_resource type="Texture2D" uid="uid://drit0yb75kwtp" path="res://Assets/Scenes/Main Characters/Virtual Guy/Run (32x32).png" id="4"]
-[ext_resource type="Texture2D" uid="uid://bdl0156egmebl" path="res://Assets/Scenes/Main Characters/Virtual Guy/Jump (32x32).png" id="5"]
+[ext_resource type="Texture2D" uid="uid://dbcevasfcb40p" path="res://Assets/Scenes/Main Characters/Person/Idle.png" id="3_lrk0q"]
+[ext_resource type="Texture2D" uid="uid://dfwvikc86dmre" path="res://Assets/Scenes/Main Characters/Person/Fall.png" id="4_rbv1e"]
+[ext_resource type="Texture2D" uid="uid://di5nvsrtixaak" path="res://Assets/Scenes/Main Characters/Person/Hit.png" id="5_bx1ai"]
+[ext_resource type="Texture2D" uid="uid://cfl8xs5hllnyu" path="res://Assets/Scenes/Main Characters/Person/Jump.png" id="6_y65vv"]
+[ext_resource type="PackedScene" uid="uid://bucxb6vb56cwd" path="res://prefabs/hurtbox.tscn" id="7_1rvep"]
+[ext_resource type="Texture2D" uid="uid://batxx5x5koqfi" path="res://Assets/Scenes/Main Characters/Person/Run.png" id="7_4eux3"]
 
 [sub_resource type="Animation" id="1"]
 resource_name = "Idle"
@@ -16,10 +19,10 @@ tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.611633, 0.7, 0.8, 0.9, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 0, 1, 2, 3, 5]
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 10]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -31,7 +34,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("1")]
+"values": [ExtResource("3_lrk0q")]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -85,6 +88,45 @@ tracks/2/keys = {
 "values": [11]
 }
 
+[sub_resource type="Animation" id="Animation_ah724"]
+resource_name = "fall"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_rbv1e")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
 [sub_resource type="Animation" id="5"]
 resource_name = "hit"
 length = 0.7
@@ -110,7 +152,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0.1),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("3")]
+"values": [ExtResource("5_bx1ai")]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -150,7 +192,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0.1),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("5")]
+"values": [ExtResource("6_y65vv")]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -191,7 +233,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0.1),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("4")]
+"values": [ExtResource("7_4eux3")]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -210,6 +252,7 @@ tracks/2/keys = {
 _data = {
 "Idle": SubResource("1"),
 "RESET": SubResource("2"),
+"fall": SubResource("Animation_ah724"),
 "hit": SubResource("5"),
 "jump": SubResource("4"),
 "run": SubResource("6")
@@ -220,10 +263,11 @@ size = Vector2(21, 25)
 
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(0, -16)
-collision_mask = 14
+collision_mask = 94
 script = ExtResource("2")
 
 [node name="texture" type="Sprite2D" parent="."]
+texture_filter = 1
 texture = ExtResource("1")
 hframes = 11
 
@@ -235,6 +279,7 @@ libraries = {
 }
 
 [node name="collision" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0.5, 1.5)
 shape = SubResource("3")
 
@@ -243,12 +288,12 @@ shape = SubResource("3")
 [node name="RayCast3D" type="RayCast2D" parent="raycasts"]
 position = Vector2(-7, 12)
 target_position = Vector2(0, 12)
-collision_mask = 8
+collision_mask = 88
 
 [node name="RayCast2" type="RayCast2D" parent="raycasts"]
 position = Vector2(8, 12)
 target_position = Vector2(0, 12)
-collision_mask = 8
+collision_mask = 88
 
 [node name="Camera3D" type="Camera2D" parent="."]
 limit_left = -32
@@ -262,3 +307,8 @@ drag_right_margin = 0.4
 drag_bottom_margin = 0.3
 editor_draw_limits = true
 editor_draw_drag_margin = true
+
+[node name="Hurtbox" parent="." instance=ExtResource("7_1rvep")]
+position = Vector2(0.5, 1.5)
+
+[connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]

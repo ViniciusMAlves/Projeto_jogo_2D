@@ -15,6 +15,11 @@ run/main_scene="res://Levels/Level_01.tscn"
 config/features=PackedStringArray("4.0")
 config/icon="res://icon.png"
 
+[autoload]
+
+Global="*res://Scripts/Global.gd"
+Hub="*res://prefabs/hub.tscn"
+
 [display]
 
 window/size/viewport_width=320
@@ -26,25 +31,23 @@ window/stretch/mode="canvas_items"
 [importer_defaults]
 
 texture={
-"compress/bptc_ldr": 0,
-"compress/hdr_mode": 0,
+"compress/channel_pack": 0,
+"compress/hdr_compression": 1,
+"compress/high_quality": false,
 "compress/lossy_quality": 0.7,
 "compress/mode": 0,
 "compress/normal_map": 0,
-"detect_3d": true,
-"flags/anisotropic": false,
-"flags/filter": false,
-"flags/mipmaps": false,
-"flags/repeat": 0,
-"flags/srgb": 2,
-"process/HDR_as_SRGB": false,
+"detect_3d/compress_to": 0,
+"mipmaps/generate": true,
+"mipmaps/limit": -1,
 "process/fix_alpha_border": true,
-"process/invert_color": false,
+"process/hdr_as_srgb": false,
+"process/hdr_clamp_exposure": false,
 "process/normal_map_invert_y": false,
 "process/premult_alpha": false,
-"size_limit": 0,
-"stream": false,
-"svg/scale": 1.0
+"process/size_limit": 0,
+"roughness/mode": 0,
+"roughness/src_normal": ""
 }
 
 [input]
@@ -79,6 +82,9 @@ attack={
 2d_physics/layer_2="Enimes"
 2d_physics/layer_3="Itens"
 2d_physics/layer_4="World"
+2d_physics/layer_5="Traps"
+2d_physics/layer_6="Hurtboxes"
+2d_physics/layer_7="Hitboxes"
 
 [physics]
 

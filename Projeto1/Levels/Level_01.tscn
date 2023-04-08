@@ -1,6 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://br1uutack0687"]
+[gd_scene load_steps=20 format=3 uid="uid://br1uutack0687"]
 
 [ext_resource type="PackedScene" uid="uid://ciqdx7x3gsy1d" path="res://Scenes/Player.tscn" id="1"]
+[ext_resource type="Script" path="res://Scripts/Reset_Level.gd" id="1_2ar8s"]
 [ext_resource type="Texture2D" uid="uid://7wv2f1eafu42" path="res://Assets/Scenes/Seasonal Tilesets/1 - Grassland/Background parts/1 - Foreground_scenery.png" id="2"]
 [ext_resource type="Texture2D" uid="uid://34l4u1ayi3pj" path="res://Assets/Scenes/Terrain/Terrain (16x16).png" id="3"]
 [ext_resource type="Texture2D" uid="uid://cx81tpiqvwj01" path="res://Assets/Scenes/Seasonal Tilesets/1 - Grassland/Background parts/3 - Cloud_cover_1.png" id="4"]
@@ -8,6 +9,12 @@
 [ext_resource type="Texture2D" uid="uid://djojdfr6cs04a" path="res://Assets/Scenes/Seasonal Tilesets/1 - Grassland/Background parts/2 - Hills.png" id="5"]
 [ext_resource type="Texture2D" uid="uid://draq1firahhus" path="res://Assets/Scenes/Seasonal Tilesets/1 - Grassland/Background parts/4 - Cloud_cover_2.png" id="6"]
 [ext_resource type="Texture2D" uid="uid://dpm2gg6xqield" path="res://Assets/Scenes/Seasonal Tilesets/1 - Grassland/Background parts/5 - Sky_color.png" id="7"]
+[ext_resource type="Script" path="res://Scripts/Fall_zone.gd" id="9_g5nk5"]
+[ext_resource type="PackedScene" uid="uid://cc454mfunl3n1" path="res://Itens/letra_a.tscn" id="10_h3ehw"]
+[ext_resource type="PackedScene" uid="uid://b1d8pl3bfcspd" path="res://Scenes/mushroom.tscn" id="11_ye6jr"]
+[ext_resource type="PackedScene" uid="uid://ct7ssa6h320q4" path="res://prefabs/falling_plataform.tscn" id="12_2ruc3"]
+[ext_resource type="PackedScene" uid="uid://d17y4tt2mwdrd" path="res://prefabs/moving_plataform.tscn" id="13_mhjnk"]
+[ext_resource type="PackedScene" uid="uid://eyvx1dns76ia" path="res://Itens/coin.tscn" id="14_vnf61"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p7eis"]
 resource_name = "Stone"
@@ -568,7 +575,11 @@ shader = ExtResource("4_jmjxv")
 shader_parameter/Direction = Vector2(1, 0)
 shader_parameter/speed = 0.02
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ojf5s"]
+size = Vector2(113.5, 20)
+
 [node name="Level_01" type="Node2D"]
+script = ExtResource("1_2ar8s")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_evxh2")
@@ -630,3 +641,46 @@ position = Vector2(0, -300)
 scale = Vector2(2, 2)
 texture = ExtResource("2")
 centered = false
+
+[node name="fall_zone" type="Area2D" parent="."]
+position = Vector2(693, 91)
+scale = Vector2(2, 2)
+script = ExtResource("9_g5nk5")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="fall_zone"]
+position = Vector2(46.75, 0)
+shape = SubResource("RectangleShape2D_ojf5s")
+
+[node name="letra_A" parent="." instance=ExtResource("10_h3ehw")]
+position = Vector2(224, 12)
+
+[node name="Mushroom" parent="." instance=ExtResource("11_ye6jr")]
+position = Vector2(428, 58)
+
+[node name="FallingPlataform" parent="." instance=ExtResource("12_2ruc3")]
+position = Vector2(709, 41)
+
+[node name="MovingPlataform2" type="Node2D" parent="."]
+
+[node name="MovingPlataform" parent="MovingPlataform2" instance=ExtResource("13_mhjnk")]
+position = Vector2(284, 22)
+
+[node name="FallingPlataform2" type="Node2D" parent="."]
+
+[node name="MovingPlataform" parent="FallingPlataform2" instance=ExtResource("13_mhjnk")]
+position = Vector2(551, 33)
+horizontal = false
+
+[node name="Coins" type="Node2D" parent="."]
+
+[node name="Coin" parent="Coins" instance=ExtResource("14_vnf61")]
+position = Vector2(336, 58)
+
+[node name="Coin2" parent="Coins" instance=ExtResource("14_vnf61")]
+position = Vector2(384, 61)
+
+[node name="Coin3" parent="Coins" instance=ExtResource("14_vnf61")]
+position = Vector2(485, 62)
+
+[connection signal="body_entered" from="fall_zone" to="fall_zone" method="_on_body_entered"]
