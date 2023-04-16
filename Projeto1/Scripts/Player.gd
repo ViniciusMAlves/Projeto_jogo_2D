@@ -5,12 +5,26 @@ var move_speed = 480
 var gravity = 1200
 var jump_force = -720
 var is_grounded
-var health = 3
+
+var player_health = 3
+var max_health = 3
+
 var hurted = false
+
 var knockback_dir = 1
 var knockback_int = 500
 
 @onready var raycasts = $raycasts
+
+signal  chage_life(player_health)
+
+
+func _ready():
+	var character_node = get_node("../HUB/HBoxContainer/Holder")
+	var callable = Callable(character_node, "on_change_life")
+	connect("chage_life", callable)
+	emit_signal("chage_life", max_health)
+	position = Global.checkpoint_pos
 
 func _physics_process(delta):	
 	velocity.y += gravity * delta	
@@ -71,18 +85,27 @@ func _set_animation():
 		$anime.play(anim)
 
 func knockback():
-	velocity.x = -knockback_dir * knockback_int
+	if $right.is_colliding():
+		velocity.x = -knockback_dir * knockback_int
+	
+	if $left.is_colliding():
+		velocity.x = knockback_dir * knockback_int
+	
 	move_and_slide()
 
 func _on_hurtbox_body_entered(body):
-	health -= 1
+	player_health -= 1
 	hurted = true
+	emit_signal("chage_life", player_health)
 	knockback()
 	get_node("Hurtbox/Collision").set_deferred("disabled", true)
 	await get_tree().create_timer(0.5).timeout
 	get_node("Hurtbox/Collision").set_deferred("disabled", false)
 	hurted = false
 	
-	if health < 1:
+	if player_health < 1:
 		queue_free()
 		get_tree().reload_current_scene()
+		
+func hit_checkpoint():
+	Global.checkpoint_pos = position

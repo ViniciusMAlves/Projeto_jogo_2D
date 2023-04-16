@@ -1,0 +1,70 @@
+[gd_scene load_steps=11 format=3 uid="uid://c0ca4xamsplo7"]
+
+[ext_resource type="Script" path="res://Scripts/goal.gd" id="1_8suqd"]
+[ext_resource type="Texture2D" uid="uid://m3ck6r0d7np" path="res://Assets/Scenes/Items/Checkpoints/End/End (Idle).png" id="1_76ldp"]
+
+[sub_resource type="Gradient" id="Gradient_b3eik"]
+offsets = PackedFloat32Array(0, 0.681481, 1)
+colors = PackedColorArray(0.988235, 0.188235, 0, 1, 0.52549, 0.117647, 0.0156863, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_4migy"]
+gradient = SubResource("Gradient_b3eik")
+
+[sub_resource type="Curve" id="Curve_3rw4d"]
+min_value = -1.0
+_data = [Vector2(0.0301205, 1), 0.0, 0.0, 0, 0, Vector2(0.915663, -0.872727), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_sd1y5"]
+curve = SubResource("Curve_3rw4d")
+
+[sub_resource type="Curve" id="Curve_ktmjy"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.472727), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_htjpv"]
+curve = SubResource("Curve_ktmjy")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_an0ao"]
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+gravity = Vector3(0, 98, 0)
+initial_velocity_min = 50.0
+initial_velocity_max = 100.0
+angular_velocity_max = 100.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+angle_max = 30.0
+scale_max = 2.0
+scale_curve = SubResource("CurveTexture_htjpv")
+color = Color(1, 0, 0, 1)
+color_ramp = SubResource("GradientTexture1D_4migy")
+hue_variation_min = -1.0
+hue_variation_max = 1.0
+hue_variation_curve = SubResource("CurveTexture_sd1y5")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uttjf"]
+size = Vector2(32, 43)
+
+[node name="Goal" type="Area2D"]
+collision_layer = 16
+script = ExtResource("1_8suqd")
+
+[node name="confete" type="GPUParticles2D" parent="."]
+position = Vector2(0, -43)
+emitting = false
+amount = 16
+process_material = SubResource("ParticleProcessMaterial_an0ao")
+explosiveness = 0.6
+randomness = 0.2
+
+[node name="texture" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -32)
+texture = ExtResource("1_76ldp")
+
+[node name="collision" type="CollisionShape2D" parent="."]
+position = Vector2(0, -22)
+shape = SubResource("RectangleShape2D_uttjf")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

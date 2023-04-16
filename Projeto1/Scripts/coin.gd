@@ -16,7 +16,7 @@ func _on_anim_animation_finished(anim_name):
 		queue_free()
 
 
-var coins = 1
+@export var coins = 1
 func _on_body_entered(body):
 	$anim.play("collected")
 	Global.coins += coins

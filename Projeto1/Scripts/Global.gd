@@ -2,6 +2,7 @@ extends Node
 
 var coins = 0
 var silabas = ""
+var checkpoint_pos = Vector2(128, 16)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

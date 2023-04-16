@@ -13,7 +13,7 @@ func _process(delta):
 
 func _on_Letras_body_entered(body):
 	$Anima.play("collected")
-	Global.silabas = letra
+	Global.silabas += letra
 	print(Global.silabas)
 
 

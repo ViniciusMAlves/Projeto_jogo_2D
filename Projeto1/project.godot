@@ -18,7 +18,6 @@ config/icon="res://icon.png"
 [autoload]
 
 Global="*res://Scripts/Global.gd"
-Hub="*res://prefabs/hub.tscn"
 
 [display]
 

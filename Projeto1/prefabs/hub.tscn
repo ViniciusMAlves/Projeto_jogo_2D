@@ -1,6 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://b4cb84n7mpaij"]
+[gd_scene load_steps=8 format=3 uid="uid://b4cb84n7mpaij"]
 
 [ext_resource type="Texture2D" uid="uid://do63q20qb1kqc" path="res://Assets/Mini FX, Items & UI/Common Pick-ups/Icon_Coin (16 x 16).png" id="1_hcpp1"]
+[ext_resource type="Texture2D" uid="uid://p7xmvsbvwmsl" path="res://Assets/Mini FX, Items & UI/Common Pick-ups/Icon_Heart.png" id="1_pwxyw"]
+[ext_resource type="Script" path="res://Scripts/LifeHolder.gd" id="1_sx1f3"]
+[ext_resource type="Script" path="res://Scripts/Time_Counter.gd" id="2_0pjtg"]
 [ext_resource type="FontFile" uid="uid://1pq1sb417r8i" path="res://RobotoMono-VariableFont_wght.ttf" id="2_gux4n"]
 [ext_resource type="Script" path="res://Scripts/Scor.gd" id="3_6ai5f"]
 
@@ -10,29 +13,88 @@ fallbacks = Array[Font]([ExtResource("2_gux4n")])
 
 [node name="HUB" type="CanvasLayer"]
 
-[node name="Holder" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -163.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="icon" type="TextureRect" parent="Holder"]
+[node name="Holder" type="Control" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("1_sx1f3")
+
+[node name="heart_1" type="TextureRect" parent="HBoxContainer/Holder"]
+texture_filter = 1
+layout_direction = 1
+layout_mode = 0
+offset_left = 5.0
+offset_top = 3.0
+offset_right = 21.0
+offset_bottom = 19.0
+texture = ExtResource("1_pwxyw")
+
+[node name="heart_2" type="TextureRect" parent="HBoxContainer/Holder"]
 texture_filter = 1
 layout_mode = 0
-offset_left = 3.0
+offset_left = 27.0
 offset_top = 3.0
-offset_right = 28.0
-offset_bottom = 25.0
+offset_right = 43.0
+offset_bottom = 19.0
+texture = ExtResource("1_pwxyw")
+
+[node name="heart_3" type="TextureRect" parent="HBoxContainer/Holder"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 49.0
+offset_top = 3.0
+offset_right = 65.0
+offset_bottom = 19.0
+texture = ExtResource("1_pwxyw")
+
+[node name="Holder2" type="Control" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Time" type="Label" parent="HBoxContainer/Holder2"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = SubResource("FontVariation_p0lu3")
+theme_override_font_sizes/font_size = 16
+text = "00"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_0pjtg")
+
+[node name="Holder3" type="Control" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="icon" type="TextureRect" parent="HBoxContainer/Holder3"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 27.0
+offset_top = 3.0
+offset_right = 43.0
+offset_bottom = 19.0
 texture = ExtResource("1_hcpp1")
 
-[node name="scor" type="Label" parent="Holder"]
+[node name="scor" type="Label" parent="HBoxContainer/Holder3"]
 modulate = Color(0, 0, 0, 1)
 layout_mode = 0
-offset_left = 33.0
-offset_right = 83.0
-offset_bottom = 29.0
+offset_left = 54.0
+offset_right = 102.0
+offset_bottom = 25.0
 theme_override_fonts/font = SubResource("FontVariation_p0lu3")
-theme_override_font_sizes/font_size = 19
+theme_override_font_sizes/font_size = 16
 text = "00"
 horizontal_alignment = 2
 vertical_alignment = 1
