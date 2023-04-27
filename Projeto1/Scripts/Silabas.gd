@@ -1,9 +1,6 @@
 extends Area2D
 
-@onready var changer = get_parent().get_node("Transition_in")
-
-@export var path: String
-
+@export var Silabas = "" 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -15,8 +12,12 @@ func _process(delta):
 	pass
 
 
+func _on_anim_animation_finished(anim_name):
+	if anim_name == "collected":
+		queue_free()
+
+
 func _on_body_entered(body):
-	if body.name == "Player":
-		$confete.emitting = true
-		changer.change_scene(path)
-		Global.checkpoint_pos = Vector2(128, 16)
+	$anim.play("collected")
+	Global.silabas += Silabas
+	print(Global.silabas)

@@ -12,7 +12,7 @@ var max_health = 3
 var hurted = false
 
 var knockback_dir = 1
-var knockback_int = 500
+var knockback_int = 800
 
 @onready var raycasts = $raycasts
 
