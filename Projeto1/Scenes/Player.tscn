@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://ciqdx7x3gsy1d"]
+[gd_scene load_steps=18 format=3 uid="uid://ciqdx7x3gsy1d"]
 
 [ext_resource type="Texture2D" uid="uid://bbsmb3otqj06d" path="res://Assets/Scenes/Main Characters/Virtual Guy/Idle (32x32).png" id="1"]
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="2"]
@@ -259,7 +259,10 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="3"]
-size = Vector2(21, 25)
+size = Vector2(21, 21)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7m76a"]
+size = Vector2(20, 3)
 
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(0, -16)
@@ -279,9 +282,9 @@ libraries = {
 }
 
 [node name="collision" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2(0.5, 1.5)
+position = Vector2(0.5, 5.5)
 shape = SubResource("3")
+debug_color = Color(0, 0.65098, 0.152941, 0.419608)
 
 [node name="raycasts" type="Node2D" parent="."]
 
@@ -309,6 +312,7 @@ editor_draw_limits = true
 editor_draw_drag_margin = true
 
 [node name="Hurtbox" parent="." instance=ExtResource("7_1rvep")]
+visible = false
 position = Vector2(0.5, 1.5)
 
 [node name="left" type="RayCast2D" parent="."]
@@ -319,4 +323,13 @@ collision_mask = 2
 target_position = Vector2(-16, 0)
 collision_mask = 2
 
+[node name="headCollider" type="Area2D" parent="."]
+collision_mask = 16
+
+[node name="collision" type="CollisionShape2D" parent="headCollider"]
+position = Vector2(0, -7.5)
+shape = SubResource("RectangleShape2D_7m76a")
+debug_color = Color(0.956863, 0.027451, 0.533333, 0.419608)
+
 [connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]
+[connection signal="body_entered" from="headCollider" to="." method="_on_head_collider_body_entered"]

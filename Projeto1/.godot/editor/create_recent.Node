@@ -1,10 +1,13 @@
+CollisionShape2D
+RigidBody2D
+Marker2D
+Area2D
+AnimationPlayer
+CharacterBody2D
 ColorRect
 CanvasLayer
 Node2D
-AnimationPlayer
-CollisionShape2D
 Sprite2D
-Area2D
 GPUParticles2D
 RayCast2D
 Timer
@@ -12,5 +15,4 @@ HBoxContainer
 Label
 TextureRect
 Control
-CharacterBody2D
 TileMap

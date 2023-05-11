@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cwpyeqyau6y6h"]
+
+[ext_resource type="PackedScene" uid="uid://eyvx1dns76ia" path="res://Itens/coin.tscn" id="1_2k2wt"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8ckyv"]
+radius = 8.0
+
+[node name="coin_rlg" type="RigidBody2D"]
+collision_layer = 0
+collision_mask = 8
+
+[node name="Coin" parent="." instance=ExtResource("1_2k2wt")]
+
+[node name="collision" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_8ckyv")

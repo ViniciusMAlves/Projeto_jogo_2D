@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://br1uutack0687"]
+[gd_scene load_steps=26 format=3 uid="uid://br1uutack0687"]
 
 [ext_resource type="PackedScene" uid="uid://ciqdx7x3gsy1d" path="res://Scenes/Player.tscn" id="1"]
 [ext_resource type="Script" path="res://Scripts/Reset_Level.gd" id="1_2ar8s"]
@@ -19,6 +19,8 @@
 [ext_resource type="PackedScene" uid="uid://b4cb84n7mpaij" path="res://prefabs/hub.tscn" id="16_cpjey"]
 [ext_resource type="PackedScene" uid="uid://pqq65me2pt8o" path="res://prefabs/checkpoint.tscn" id="17_xgskp"]
 [ext_resource type="PackedScene" uid="uid://c0ca4xamsplo7" path="res://prefabs/goal.tscn" id="18_isg10"]
+[ext_resource type="PackedScene" uid="uid://cuyobqd5hji00" path="res://prefabs/break_box.tscn" id="20_8dwai"]
+[ext_resource type="PackedScene" uid="uid://cwpyeqyau6y6h" path="res://Itens/coin_rlg.tscn" id="21_g6sm2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p7eis"]
 resource_name = "Stone"
@@ -616,7 +618,7 @@ position = Vector2(622, 64)
 [node name="Silabas" type="Node2D" parent="."]
 
 [node name="Silaba_BA" parent="Silabas" instance=ExtResource("5_6y8cp")]
-position = Vector2(472, -178)
+position = Vector2(220, 32)
 
 [node name="Goal" parent="." instance=ExtResource("18_isg10")]
 position = Vector2(837, -160)
@@ -709,6 +711,11 @@ position = Vector2(384, 61)
 position = Vector2(485, 62)
 
 [node name="HUB" parent="." instance=ExtResource("16_cpjey")]
+
+[node name="break-box" parent="." instance=ExtResource("20_8dwai")]
+position = Vector2(195, 6)
+coin_instance = Array[PackedScene]([ExtResource("21_g6sm2")])
+cois = 10
 
 [connection signal="body_entered" from="fall_zone" to="fall_zone" method="_on_body_entered"]
 
