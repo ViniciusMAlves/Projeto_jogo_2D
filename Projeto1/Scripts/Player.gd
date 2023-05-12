@@ -20,6 +20,7 @@ signal  chage_life(player_health)
 
 
 func _ready():
+	Global.set("player", self)
 	var character_node = get_node("../HUB/HBoxContainer/Holder")
 	var callable = Callable(character_node, "on_change_life")
 	connect("chage_life", callable)
@@ -94,6 +95,21 @@ func knockback():
 	move_and_slide()
 
 func _on_hurtbox_body_entered(body):
+	Dano()
+		
+func hit_checkpoint():
+	Global.checkpoint_pos = position
+
+
+func _on_head_collider_body_entered(body):
+	if body.has_method("destroy"):
+		body.destroy()
+
+
+func _on_hurtbox_area_entered(area):
+	Dano()
+		
+func Dano():
 	player_health -= 1
 	hurted = true
 	emit_signal("chage_life", player_health)
@@ -106,11 +122,3 @@ func _on_hurtbox_body_entered(body):
 	if player_health < 1:
 		queue_free()
 		get_tree().reload_current_scene()
-		
-func hit_checkpoint():
-	Global.checkpoint_pos = position
-
-
-func _on_head_collider_body_entered(body):
-	if body.has_method("destroy"):
-		body.destroy()

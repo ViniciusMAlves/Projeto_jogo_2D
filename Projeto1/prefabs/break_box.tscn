@@ -6,9 +6,8 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_20oth"]
 
-[sub_resource type="Animation" id="Animation_c0s7g"]
-resource_name = "default"
-length = 0.1
+[sub_resource type="Animation" id="Animation_btypg"]
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -58,8 +57,9 @@ tracks/3/keys = {
 "values": [1]
 }
 
-[sub_resource type="Animation" id="Animation_btypg"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_c0s7g"]
+resource_name = "default"
+length = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true

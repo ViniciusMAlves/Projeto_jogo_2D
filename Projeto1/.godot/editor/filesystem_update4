@@ -1,6 +1,9 @@
 res://default_env.tres
-res://Levels/Level_01.tscn
+res://Scenes/mushroom.tscn
 res://Scripts/overlay.gd
+res://Scripts/EnemyBase.gd
+res://Levels/Level_01.tscn
+res://Scripts/mushroom.gd
 res://Levels/Level_02.tscn
 res://Scenes/Player.tscn
 res://prefabs/hub.tscn
@@ -8,6 +11,13 @@ res://Itens/silaba_ba.tscn
 res://prefabs/transition_out.tscn
 res://prefabs/goal.tscn
 res://prefabs/break_box.tscn
-res://Scripts/Player.gd
-res://Scripts/Breakable.gd
 res://Itens/coin_rlg.tscn
+res://Scenes/Birdie.tscn
+res://Scripts/Birdie.gd
+res://Scripts/Transition_in.gd
+res://Scenes/Plantie.tscn
+res://Scenes/seed.tscn
+res://Scripts/Global.gd
+res://Scripts/Plantie.gd
+res://Scripts/Player.gd
+res://Scripts/Seed.gd
