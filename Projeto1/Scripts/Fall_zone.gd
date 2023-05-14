@@ -12,5 +12,5 @@ func _process(delta):
 
 
 func _on_body_entered(body):
-	print(body.name)
-	get_tree().reload_current_scene()
+	print(body.name)	
+	get_tree().change_scene_to_file("res://prefabs/GameOver.tscn")

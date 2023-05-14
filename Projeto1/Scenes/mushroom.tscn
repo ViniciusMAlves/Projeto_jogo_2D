@@ -1,10 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://b1d8pl3bfcspd"]
+[gd_scene load_steps=14 format=3 uid="uid://b1d8pl3bfcspd"]
 
 [ext_resource type="Script" path="res://Scripts/mushroom.gd" id="1_r03pf"]
 [ext_resource type="Texture2D" uid="uid://b756n5esqygut" path="res://Assets/Enemies/Mushroom/Run (32x32).png" id="1_rp6jb"]
-[ext_resource type="Texture2D" uid="uid://cy726640m3msx" path="res://Assets/Enemies/Mushroom/Idle (32x32).png" id="2_p0bxw"]
-[ext_resource type="Texture2D" uid="uid://10xn70ijrqoy" path="res://Assets/Enemies/Mushroom/Hit.png" id="3_2mhxj"]
+[ext_resource type="Texture2D" uid="uid://bde8jdrk1yabr" path="res://Assets/Enemies/AngryPig/Idle (36x30).png" id="3_x8wyf"]
+[ext_resource type="Texture2D" uid="uid://clscvsvgbnqwj" path="res://Assets/Enemies/AngryPig/Hit 2 (36x30).png" id="4_m637i"]
 [ext_resource type="PackedScene" uid="uid://dvv1rxkiikw0d" path="res://prefabs/hitbox.tscn" id="5_cslo7"]
+[ext_resource type="Texture2D" uid="uid://bg3ytqj5vq86u" path="res://Assets/Enemies/AngryPig/Walk (36x30).png" id="6_n13tk"]
+[ext_resource type="AudioStream" uid="uid://386u3i7orv2t" path="res://Sounds/Sounds/enemy_hit.wav" id="6_va453"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_61tdx"]
 radius = 6.99992
@@ -12,7 +14,7 @@ height = 27.9975
 
 [sub_resource type="Animation" id="Animation_tryvx"]
 resource_name = "Idle"
-length = 2.8
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -23,7 +25,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_p0bxw")]
+"values": [ExtResource("3_x8wyf")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -35,7 +37,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [14]
+"values": [9]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -44,10 +46,10 @@ tracks/2/path = NodePath("../texture:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8]
 }
 
 [sub_resource type="Animation" id="Animation_shdae"]
@@ -102,7 +104,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("3_2mhxj")]
+"values": [ExtResource("4_m637i")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -128,6 +130,21 @@ tracks/2/keys = {
 "update": 1,
 "values": [0, 1, 2, 3, 4]
 }
+tracks/3/type = "audio"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../sounds")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("6_va453")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/3/use_blend = true
 
 [sub_resource type="Animation" id="Animation_18cpx"]
 resource_name = "run"
@@ -143,7 +160,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("1_rp6jb")]
+"values": [ExtResource("6_n13tk")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -212,6 +229,10 @@ position = Vector2(0, -1)
 
 [node name="Collision" parent="hitbox" index="0"]
 position = Vector2(0, 2)
+
+[node name="sounds" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_va453")
+volume_db = -20.0
 
 [connection signal="animation_finished" from="Anima" to="." method="_on_anima_animation_finished"]
 [connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]

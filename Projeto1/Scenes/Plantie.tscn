@@ -1,9 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://cbu86pk53ybku"]
+[gd_scene load_steps=15 format=3 uid="uid://cbu86pk53ybku"]
 
 [ext_resource type="Script" path="res://Scripts/Plantie.gd" id="1_fj0le"]
 [ext_resource type="Texture2D" uid="uid://mycrvghlsy6c" path="res://Assets/Enemies/Plant/Idle (44x42).png" id="1_xj0h8"]
 [ext_resource type="Texture2D" uid="uid://dlqbslh37yaqr" path="res://Assets/Enemies/Plant/Attack (44x42).png" id="2_dunbb"]
+[ext_resource type="AudioStream" uid="uid://lukyek5g4pa2" path="res://Sounds/Audio/footstep_carpet_003.ogg" id="4_8am8n"]
 [ext_resource type="Texture2D" uid="uid://bipnny8cqke20" path="res://Assets/Enemies/Plant/Hit (44x42).png" id="4_vfics"]
+[ext_resource type="AudioStream" uid="uid://386u3i7orv2t" path="res://Sounds/Sounds/enemy_hit.wav" id="5_77i7i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ma2ch"]
 size = Vector2(28, 28)
@@ -142,6 +144,21 @@ tracks/3/keys = {
 "method": &"shoot"
 }]
 }
+tracks/4/type = "audio"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../sounds")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("4_8am8n")
+}],
+"times": PackedFloat32Array(0.4)
+}
+tracks/4/use_blend = true
 
 [sub_resource type="Animation" id="Animation_pjp6j"]
 resource_name = "hit"
@@ -182,6 +199,21 @@ tracks/2/keys = {
 "update": 1,
 "values": [0, 1, 2, 3, 4]
 }
+tracks/3/type = "audio"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../sounds")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("5_77i7i")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/3/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_42rvo"]
 _data = {
@@ -237,6 +269,9 @@ collision_layer = 64
 position = Vector2(3, -32)
 shape = SubResource("RectangleShape2D_gum38")
 debug_color = Color(0.937255, 0, 0, 0.419608)
+
+[node name="sounds" type="AudioStreamPlayer2D" parent="."]
+volume_db = -20.0
 
 [connection signal="body_entered" from="playerDetector" to="." method="_on_player_detector_body_entered"]
 [connection signal="body_exited" from="playerDetector" to="." method="_on_player_detector_body_exited"]

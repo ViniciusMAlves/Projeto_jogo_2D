@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://cuyobqd5hji00"]
+[gd_scene load_steps=10 format=3 uid="uid://cuyobqd5hji00"]
 
 [ext_resource type="Texture2D" uid="uid://b0my4x8ldbp2h" path="res://Assets/Scenes/Items/Boxes/Box1/Idle.png" id="1_63xd1"]
 [ext_resource type="Script" path="res://Scripts/Breakable.gd" id="1_hhti1"]
 [ext_resource type="Texture2D" uid="uid://c2rcxxnaykiq0" path="res://Assets/Scenes/Items/Boxes/Box1/Hit (28x24).png" id="2_0j438"]
+[ext_resource type="AudioStream" uid="uid://do218bgg1pjtp" path="res://Sounds/Audio/impactPunch_heavy_000.ogg" id="4_o5ddn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_20oth"]
 
@@ -160,6 +161,21 @@ tracks/3/keys = {
 "update": 1,
 "values": [Rect2(0, 0, 28, 24), Rect2(28, 0, 28, 24), Rect2(56, 0, 28, 24), Rect2(84, 0, 28, 24)]
 }
+tracks/4/type = "audio"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("sounds")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("4_o5ddn")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/4/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_l42vc"]
 _data = {
@@ -189,3 +205,6 @@ libraries = {
 
 [node name="spawnPoint" type="Marker2D" parent="."]
 position = Vector2(0, -16)
+
+[node name="sounds" type="AudioStreamPlayer2D" parent="."]
+volume_db = -10.0

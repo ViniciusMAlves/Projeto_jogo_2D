@@ -1,0 +1,180 @@
+[gd_scene load_steps=10 format=3 uid="uid://eonlqtdo1vdr"]
+
+[ext_resource type="Script" path="res://Scripts/FireTrape.gd" id="1_mpdj2"]
+[ext_resource type="Texture2D" uid="uid://dm82bsbr7xg54" path="res://Assets/Scenes/Traps/Fire/Off.png" id="1_nd5y6"]
+[ext_resource type="Texture2D" uid="uid://3b073kqy44vr" path="res://Assets/Scenes/Traps/Fire/On (16x32).png" id="3_r7dc6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w5530"]
+size = Vector2(16, 16)
+
+[sub_resource type="Animation" id="Animation_dbxdq"]
+resource_name = "off"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("fire/texture:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_nd5y6")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("fire/texture:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("fire/texture:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_s3vq1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("fire/texture:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_nd5y6")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("fire/texture:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("fire/texture:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_mrvvw"]
+resource_name = "on"
+length = 0.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("fire/texture:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_r7dc6")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("fire/texture:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("fire/texture:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4ilf8"]
+_data = {
+"RESET": SubResource("Animation_s3vq1"),
+"off": SubResource("Animation_dbxdq"),
+"on": SubResource("Animation_mrvvw")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1cxj0"]
+radius = 5.0
+height = 14.0
+
+[node name="FireTrap" type="StaticBody2D"]
+collision_layer = 16
+
+[node name="TrapCol" type="CollisionShape2D" parent="."]
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_w5530")
+
+[node name="fire" type="Area2D" parent="."]
+collision_layer = 16
+script = ExtResource("1_mpdj2")
+
+[node name="texture" type="Sprite2D" parent="fire"]
+texture_filter = 1
+position = Vector2(0, -16)
+texture = ExtResource("1_nd5y6")
+
+[node name="anima" type="AnimationPlayer" parent="fire"]
+root_node = NodePath("../..")
+autoplay = "off"
+libraries = {
+"": SubResource("AnimationLibrary_4ilf8")
+}
+
+[node name="FireCol" type="CollisionShape2D" parent="fire"]
+position = Vector2(0, -23)
+shape = SubResource("CapsuleShape2D_1cxj0")
+disabled = true
+debug_color = Color(0.92549, 0.211765, 0, 0.419608)
+
+[node name="startTimer" type="Timer" parent="fire"]
+wait_time = 3.0
+autostart = true
+
+[node name="stopTimer" type="Timer" parent="fire"]
+wait_time = 6.0
+autostart = true
+
+[connection signal="body_entered" from="fire" to="fire" method="_on_body_entered"]
+[connection signal="timeout" from="fire/startTimer" to="fire" method="_on_start_timer_timeout"]
+[connection signal="timeout" from="fire/stopTimer" to="fire" method="_on_stop_timer_timeout"]

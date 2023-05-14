@@ -20,9 +20,9 @@ func _start_tween():
 	var move_direction = Vector2.RIGHT * distance if horizontal else Vector2.UP * distance
 	var duration = move_direction.length()/float(speed * 16)
 	
-	myTween.tween_property(self, "follow", move_direction, duration).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT).set_delay(duration + WAIT_DURATION)
+	myTween.tween_property(self, "follow", move_direction, duration).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT).set_delay(duration)
 	
-	myTween.tween_property(self, "follow", Vector2.ZERO, duration).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT).set_delay(duration + WAIT_DURATION * 2)
+	myTween.tween_property(self, "follow", Vector2.ZERO, duration).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT).set_delay(duration)
 
 
 func _physics_process(delta):

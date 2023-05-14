@@ -55,6 +55,7 @@ offset_bottom = 19.0
 texture = ExtResource("1_pwxyw")
 
 [node name="Holder2" type="Control" parent="HBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 

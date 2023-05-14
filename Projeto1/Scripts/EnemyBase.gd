@@ -30,6 +30,7 @@ func apply_gravity(delta):
 
 
 func _on_anima_animation_finished(anim_name):
+	print(anim_name)
 	if anim_name == "Idle":
 		$ray_wall.scale.x *= -1
 		move_direction *= -1
@@ -42,6 +43,9 @@ func _on_hitbox_body_entered(body):
 	body.velocity.y = body.jump_force / 2
 	await get_tree().create_timer(0.2).timeout
 	hitted = false
+	if  health < 1:
+		queue_free()
+		get_node("hitbox/Collision").set_deferred("disabled", true)
 	
 func _set_animation():
 	var anim = "run"
@@ -53,10 +57,6 @@ func _set_animation():
 	
 	if  hitted:
 		anim = "hit"
-		
-	if  health < 1:
-		queue_free()
-		get_node("hitbox/Collision").set_deferred("disabled", true)
 		
 	if $Anima.assigned_animation != anim:
 		$Anima.play(anim)

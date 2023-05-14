@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://df68cy1j7s1uc"]
+
+[ext_resource type="Texture2D" uid="uid://34l4u1ayi3pj" path="res://Assets/Scenes/Terrain/Terrain (16x16).png" id="1_klx3a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l8qwa"]
+size = Vector2(48, 16)
+
+[node name="BossPlataform" type="StaticBody2D"]
+collision_layer = 16
+
+[node name="Terrain(16x16)" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_klx3a")
+region_enabled = true
+region_rect = Rect2(192, 0, 48, 16)
+
+[node name="collision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_l8qwa")
+one_way_collision = true

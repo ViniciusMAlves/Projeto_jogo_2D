@@ -14,6 +14,8 @@ var hurted = false
 var knockback_dir = 1
 var knockback_int = 800
 
+var is_pushing = false
+
 @onready var raycasts = $raycasts
 
 signal  chage_life(player_health)
@@ -26,6 +28,7 @@ func _ready():
 	connect("chage_life", callable)
 	emit_signal("chage_life", max_health)
 	position = Global.checkpoint_pos
+	
 
 func _physics_process(delta):	
 	velocity.y += gravity * delta	
@@ -33,6 +36,8 @@ func _physics_process(delta):
 	
 	if !hurted:
 		_get_input()
+		
+	MoveBox(delta)
 	
 	set_velocity(velocity)
 	move_and_slide()
@@ -55,10 +60,19 @@ func _get_input():
 	if move_direction != 0:
 		$texture.scale.x = move_direction
 		knockback_dir = move_direction
+		
+	if velocity.x > 1:
+		$pushRight.set_enabled(true)
+	else:
+		$pushRight.set_enabled(false)
+	if velocity.x < -1:
+		$pushLeft.set_enabled(true)
+	else:
+		$pushLeft.set_enabled(false)
 
 func _input(event: InputEvent) -> void:
 	if Input.is_action_pressed("jump") and is_grounded:
-		velocity.y = jump_force / 2	
+		velocity.y = jump_force / 2
 		
 
 func _check_is_ground():
@@ -73,7 +87,7 @@ func _set_animation():
 	
 	if !is_grounded:
 		anim = "jump"
-	elif velocity.x != 0:
+	elif velocity.x != 0 or is_pushing:
 		anim = "run"
 	
 	if velocity.y > 0 and !is_grounded:
@@ -95,7 +109,7 @@ func knockback():
 	move_and_slide()
 
 func _on_hurtbox_body_entered(body):
-	Dano()
+	Damage()
 		
 func hit_checkpoint():
 	Global.checkpoint_pos = position
@@ -107,9 +121,9 @@ func _on_head_collider_body_entered(body):
 
 
 func _on_hurtbox_area_entered(area):
-	Dano()
+	Damage()
 		
-func Dano():
+func Damage():
 	player_health -= 1
 	hurted = true
 	emit_signal("chage_life", player_health)
@@ -118,7 +132,25 @@ func Dano():
 	await get_tree().create_timer(0.5).timeout
 	get_node("Hurtbox/Collision").set_deferred("disabled", false)
 	hurted = false
+	GameOver()
 	
+		
+func MoveBox(delta):
+	var object
+	is_pushing = false
+	if $pushRight.is_colliding():
+		object = $pushRight.get_collider()
+		object.set_velocity(Vector2(10,0) * move_speed * delta)
+		object.move_and_slide()
+		is_pushing = true
+	elif $pushLeft.is_colliding():
+		object = $pushLeft.get_collider()
+		object.set_velocity(Vector2(-10,0) * move_speed * delta)
+		object.move_and_slide()
+		is_pushing = true
+		
+func GameOver():
 	if player_health < 1:
 		queue_free()
-		get_tree().reload_current_scene()
+		get_tree().change_scene_to_file("res://prefabs/GameOver.tscn")
+	

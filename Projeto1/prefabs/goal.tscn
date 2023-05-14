@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://c0ca4xamsplo7"]
+[gd_scene load_steps=12 format=3 uid="uid://c0ca4xamsplo7"]
 
 [ext_resource type="Script" path="res://Scripts/goal.gd" id="1_8suqd"]
 [ext_resource type="Texture2D" uid="uid://m3ck6r0d7np" path="res://Assets/Scenes/Items/Checkpoints/End/End (Idle).png" id="1_76ldp"]
+[ext_resource type="AudioStream" uid="uid://cyumboqw0da0n" path="res://Sounds/Sounds/level_completed.wav" id="3_v5j1y"]
 
 [sub_resource type="Gradient" id="Gradient_b3eik"]
 offsets = PackedFloat32Array(0, 0.681481, 1)
@@ -66,5 +67,9 @@ texture = ExtResource("1_76ldp")
 [node name="collision" type="CollisionShape2D" parent="."]
 position = Vector2(0, -22)
 shape = SubResource("RectangleShape2D_uttjf")
+
+[node name="victoryFx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_v5j1y")
+volume_db = -10.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

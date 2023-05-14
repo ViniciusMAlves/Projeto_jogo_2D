@@ -20,3 +20,4 @@ func _on_body_entered(body):
 		$confete.emitting = true
 		changer.change_scene(path)
 		Global.checkpoint_pos = Vector2(128, 16)
+		$victoryFx.play()

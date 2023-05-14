@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://br1uutack0687"]
+[gd_scene load_steps=29 format=3 uid="uid://br1uutack0687"]
 
 [ext_resource type="PackedScene" uid="uid://ciqdx7x3gsy1d" path="res://Scenes/Player.tscn" id="1"]
 [ext_resource type="Script" path="res://Scripts/Reset_Level.gd" id="1_2ar8s"]
@@ -23,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://cwpyeqyau6y6h" path="res://Itens/coin_rlg.tscn" id="21_g6sm2"]
 [ext_resource type="PackedScene" uid="uid://d1yes5itfbvwi" path="res://Scenes/Birdie.tscn" id="22_khqe3"]
 [ext_resource type="PackedScene" uid="uid://cbu86pk53ybku" path="res://Scenes/Plantie.tscn" id="23_jg5hh"]
+[ext_resource type="AudioStream" uid="uid://bwcwcxa50np5f" path="res://Music/Adventure pack 1 ogg/exploration.ogg" id="24_3288i"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p7eis"]
 resource_name = "Stone"
@@ -588,6 +589,7 @@ size = Vector2(113.5, 20)
 
 [node name="Level_01" type="Node2D"]
 script = ExtResource("1_2ar8s")
+path = "res://Levels/Level_01.tscn"
 
 [node name="Transition_in" parent="." instance=ExtResource("2_rwsb7")]
 
@@ -724,6 +726,11 @@ position = Vector2(388, -246)
 
 [node name="plantie" parent="." instance=ExtResource("23_jg5hh")]
 position = Vector2(583, 65)
+
+[node name="music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("24_3288i")
+volume_db = -10.0
+autoplay = true
 
 [connection signal="body_entered" from="fall_zone" to="fall_zone" method="_on_body_entered"]
 

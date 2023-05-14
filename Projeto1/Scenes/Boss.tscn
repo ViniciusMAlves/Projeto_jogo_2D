@@ -1,0 +1,241 @@
+[gd_scene load_steps=14 format=3 uid="uid://c4ki2v3jnls3l"]
+
+[ext_resource type="Script" path="res://Scripts/Boss.gd" id="1_w4bny"]
+[ext_resource type="Texture2D" uid="uid://b756n5esqygut" path="res://Assets/Enemies/Mushroom/Run (32x32).png" id="2_s0ywk"]
+[ext_resource type="Texture2D" uid="uid://bde8jdrk1yabr" path="res://Assets/Enemies/AngryPig/Idle (36x30).png" id="3_3ly8c"]
+[ext_resource type="Texture2D" uid="uid://clscvsvgbnqwj" path="res://Assets/Enemies/AngryPig/Hit 2 (36x30).png" id="4_v5x4j"]
+[ext_resource type="AudioStream" uid="uid://386u3i7orv2t" path="res://Sounds/Sounds/enemy_hit.wav" id="5_3i4tn"]
+[ext_resource type="PackedScene" uid="uid://dvv1rxkiikw0d" path="res://prefabs/hitbox.tscn" id="6_2hcg5"]
+[ext_resource type="Texture2D" uid="uid://bg3ytqj5vq86u" path="res://Assets/Enemies/AngryPig/Walk (36x30).png" id="6_36bjs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iubm2"]
+size = Vector2(20.794, 25.1958)
+
+[sub_resource type="Animation" id="Animation_tryvx"]
+resource_name = "Idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../texture:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_3ly8c")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../texture:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [9]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../texture:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8]
+}
+
+[sub_resource type="Animation" id="Animation_shdae"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../texture:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_s0ywk")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../texture:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [16]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../texture:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_t44it"]
+resource_name = "hit"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../texture:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_v5x4j")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../texture:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [5]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../texture:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+tracks/3/type = "audio"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../sounds")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("5_3i4tn")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/3/use_blend = true
+
+[sub_resource type="Animation" id="Animation_18cpx"]
+resource_name = "run"
+length = 1.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../texture:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("6_36bjs")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../texture:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [16]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../texture:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gm0xd"]
+_data = {
+"Idle": SubResource("Animation_tryvx"),
+"RESET": SubResource("Animation_shdae"),
+"hit": SubResource("Animation_t44it"),
+"run": SubResource("Animation_18cpx")
+}
+
+[node name="Boss" type="CharacterBody2D"]
+scale = Vector2(2.5, 2.5)
+collision_layer = 2
+collision_mask = 9
+script = ExtResource("1_w4bny")
+
+[node name="texture" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-0.400002, -15)
+texture = ExtResource("2_s0ywk")
+hframes = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.200017, -10.396)
+rotation = -1.57568
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_iubm2")
+metadata/_edit_group_ = true
+
+[node name="Anima" type="AnimationPlayer" parent="."]
+root_node = NodePath("../CollisionShape2D")
+autoplay = "run"
+libraries = {
+"": SubResource("AnimationLibrary_gm0xd")
+}
+
+[node name="ray_wall" type="RayCast2D" parent="."]
+position = Vector2(-2.4, -10.4)
+target_position = Vector2(-16, 0)
+collision_mask = 8
+
+[node name="hitbox" parent="." instance=ExtResource("6_2hcg5")]
+modulate = Color(1, 1, 0.0235294, 1)
+position = Vector2(-0.400002, -16)
+
+[node name="Collision" parent="hitbox" index="0"]
+position = Vector2(0.400001, -8)
+
+[node name="sounds" type="AudioStreamPlayer2D" parent="."]
+volume_db = -20.0
+
+[connection signal="animation_finished" from="Anima" to="." method="_on_anima_animation_finished"]
+[connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
+
+[editable path="hitbox"]

@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://pqq65me2pt8o"]
+[gd_scene load_steps=12 format=3 uid="uid://pqq65me2pt8o"]
 
 [ext_resource type="Texture2D" uid="uid://dapg8qomn3qns" path="res://Assets/Scenes/Items/Checkpoints/Checkpoint/Checkpoint (No Flag).png" id="1_3qwbg"]
 [ext_resource type="Script" path="res://Scripts/checkpoint.gd" id="1_4eq2t"]
 [ext_resource type="Texture2D" uid="uid://2uvvwvta1i0t" path="res://Assets/Scenes/Items/Checkpoints/Checkpoint/Checkpoint (Flag Out) (64x64).png" id="3_q1tta"]
 [ext_resource type="Texture2D" uid="uid://movqksfex11x" path="res://Assets/Scenes/Items/Checkpoints/Checkpoint/Checkpoint (Flag Idle)(64x64).png" id="4_6ytwr"]
+[ext_resource type="AudioStream" uid="uid://cdkrglpyaiiu6" path="res://Sounds/Sounds/confirmation_002.ogg" id="5_t5ff7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xs8xg"]
 size = Vector2(20, 164)
@@ -201,6 +202,21 @@ tracks/3/keys = {
 "update": 0,
 "values": [3.0]
 }
+tracks/4/type = "audio"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("sounds")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("5_t5ff7")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/4/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_34q0k"]
 _data = {
@@ -229,6 +245,9 @@ speed_scale = 3.0
 libraries = {
 "": SubResource("AnimationLibrary_34q0k")
 }
+
+[node name="sounds" type="AudioStreamPlayer2D" parent="."]
+volume_db = -10.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="animation_finished" from="anim" to="." method="_on_anim_animation_finished"]

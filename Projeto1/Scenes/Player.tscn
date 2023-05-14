@@ -1,13 +1,15 @@
-[gd_scene load_steps=18 format=3 uid="uid://ciqdx7x3gsy1d"]
+[gd_scene load_steps=20 format=3 uid="uid://ciqdx7x3gsy1d"]
 
 [ext_resource type="Texture2D" uid="uid://bbsmb3otqj06d" path="res://Assets/Scenes/Main Characters/Virtual Guy/Idle (32x32).png" id="1"]
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="2"]
 [ext_resource type="Texture2D" uid="uid://dbcevasfcb40p" path="res://Assets/Scenes/Main Characters/Person/Idle.png" id="3_lrk0q"]
 [ext_resource type="Texture2D" uid="uid://dfwvikc86dmre" path="res://Assets/Scenes/Main Characters/Person/Fall.png" id="4_rbv1e"]
 [ext_resource type="Texture2D" uid="uid://di5nvsrtixaak" path="res://Assets/Scenes/Main Characters/Person/Hit.png" id="5_bx1ai"]
+[ext_resource type="AudioStream" uid="uid://big3xfp6x6cb6" path="res://Sounds/Sounds/error_007.ogg" id="6_8l0ex"]
 [ext_resource type="Texture2D" uid="uid://cfl8xs5hllnyu" path="res://Assets/Scenes/Main Characters/Person/Jump.png" id="6_y65vv"]
 [ext_resource type="PackedScene" uid="uid://bucxb6vb56cwd" path="res://prefabs/hurtbox.tscn" id="7_1rvep"]
 [ext_resource type="Texture2D" uid="uid://batxx5x5koqfi" path="res://Assets/Scenes/Main Characters/Person/Run.png" id="7_4eux3"]
+[ext_resource type="AudioStream" uid="uid://cvuy8utga62es" path="res://Sounds/Sounds/jump1.ogg" id="9_528hk"]
 
 [sub_resource type="Animation" id="1"]
 resource_name = "Idle"
@@ -87,6 +89,18 @@ tracks/2/keys = {
 "update": 0,
 "values": [11]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../sounds:volume_db")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-20.0]
+}
 
 [sub_resource type="Animation" id="Animation_ah724"]
 resource_name = "fall"
@@ -149,7 +163,7 @@ tracks/1/path = NodePath(".:texture")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.1),
+"times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [ExtResource("5_bx1ai")]
@@ -161,10 +175,37 @@ tracks/2/path = NodePath(".:hframes")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.1),
+"times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [7]
+}
+tracks/3/type = "audio"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../sounds")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("6_8l0ex")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/3/use_blend = true
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../sounds:volume_db")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-15.0]
 }
 
 [sub_resource type="Animation" id="4"]
@@ -189,7 +230,7 @@ tracks/1/path = NodePath(".:texture")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.1),
+"times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [ExtResource("6_y65vv")]
@@ -201,10 +242,37 @@ tracks/2/path = NodePath(".:hframes")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.1),
+"times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [1]
+}
+tracks/3/type = "audio"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../sounds")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("9_528hk")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/3/use_blend = true
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../sounds:volume_db")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-20.0]
 }
 
 [sub_resource type="Animation" id="6"]
@@ -298,16 +366,12 @@ position = Vector2(8, 12)
 target_position = Vector2(0, 12)
 collision_mask = 88
 
-[node name="Camera3D" type="Camera2D" parent="."]
+[node name="camera" type="Camera2D" parent="."]
 limit_left = -32
 limit_bottom = 300
 limit_smoothed = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
-drag_left_margin = 0.4
-drag_top_margin = 0.3
-drag_right_margin = 0.4
-drag_bottom_margin = 0.3
 editor_draw_limits = true
 editor_draw_drag_margin = true
 
@@ -316,10 +380,12 @@ visible = false
 position = Vector2(0.5, 1.5)
 
 [node name="left" type="RayCast2D" parent="."]
+visible = false
 target_position = Vector2(16, 0)
 collision_mask = 2
 
 [node name="right" type="RayCast2D" parent="."]
+visible = false
 target_position = Vector2(-16, 0)
 collision_mask = 2
 
@@ -330,6 +396,20 @@ collision_mask = 16
 position = Vector2(0, -7.5)
 shape = SubResource("RectangleShape2D_7m76a")
 debug_color = Color(0.956863, 0.027451, 0.533333, 0.419608)
+
+[node name="sounds" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_528hk")
+volume_db = -20.0
+
+[node name="pushRight" type="RayCast2D" parent="."]
+position = Vector2(10, 9)
+target_position = Vector2(2, 0)
+collision_mask = 128
+
+[node name="pushLeft" type="RayCast2D" parent="."]
+position = Vector2(-9, 9)
+target_position = Vector2(-2, 0)
+collision_mask = 128
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]
