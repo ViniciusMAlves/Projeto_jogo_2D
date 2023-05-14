@@ -61,6 +61,7 @@ size_flags_horizontal = 3
 
 [node name="Time" type="Label" parent="HBoxContainer/Holder2"]
 modulate = Color(0, 0, 0, 1)
+texture_filter = 1
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -90,6 +91,7 @@ texture = ExtResource("1_hcpp1")
 
 [node name="scor" type="Label" parent="HBoxContainer/Holder3"]
 modulate = Color(0, 0, 0, 1)
+texture_filter = 1
 layout_mode = 0
 offset_left = 54.0
 offset_right = 102.0

@@ -163,7 +163,7 @@ texture_filter = 1
 texture = ExtResource("2_vanhv")
 hframes = 16
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Collision" type="CollisionShape2D" parent="."]
 position = Vector2(-9.31323e-10, 3)
 rotation = -1.57568
 scale = Vector2(1.19961, 1)
@@ -171,7 +171,7 @@ shape = SubResource("CapsuleShape2D_61tdx")
 metadata/_edit_group_ = true
 
 [node name="Anima" type="AnimationPlayer" parent="."]
-root_node = NodePath("../CollisionShape2D")
+root_node = NodePath("../Collision")
 autoplay = "run"
 libraries = {
 "": SubResource("AnimationLibrary_gm0xd")

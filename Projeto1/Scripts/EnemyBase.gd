@@ -44,8 +44,12 @@ func _on_hitbox_body_entered(body):
 	await get_tree().create_timer(0.2).timeout
 	hitted = false
 	if  health < 1:
-		queue_free()
 		get_node("hitbox/Collision").set_deferred("disabled", true)
+		set_physics_process(false)
+		get_node("Collision").set_deferred("disabled", true)
+		await get_tree().create_timer(0.7).timeout
+		queue_free()		
+		
 	
 func _set_animation():
 	var anim = "run"

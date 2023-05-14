@@ -1,0 +1,99 @@
+[gd_scene load_steps=9 format=3 uid="uid://c5tnx3rfis0og"]
+
+[ext_resource type="FontFile" uid="uid://1pq1sb417r8i" path="res://RobotoMono-VariableFont_wght.ttf" id="1_dpm26"]
+[ext_resource type="Script" path="res://Scripts/ControlScreen.gd" id="1_nbo3w"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ps4mt"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lkv62"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yerr3"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s2k4t"]
+bg_color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3xydq"]
+
+[sub_resource type="Theme" id="Theme_b2x8h"]
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_disabled_color = Color(0, 0, 0, 1)
+Button/colors/font_focus_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(0, 0, 0, 1)
+Button/colors/icon_disabled_color = Color(0, 0, 0, 1)
+Button/colors/icon_focus_color = Color(0, 0, 0, 1)
+Button/colors/icon_hover_color = Color(0, 0, 0, 1)
+Button/colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+Button/colors/icon_normal_color = Color(0, 0, 0, 1)
+Button/colors/icon_pressed_color = Color(0, 0, 0, 1)
+Button/constants/h_separation = 0
+Button/constants/outline_size = 0
+Button/font_sizes/font_size = 16
+Button/fonts/font = null
+Button/styles/disabled = SubResource("StyleBoxFlat_ps4mt")
+Button/styles/focus = SubResource("StyleBoxFlat_lkv62")
+Button/styles/hover = SubResource("StyleBoxFlat_yerr3")
+Button/styles/normal = SubResource("StyleBoxFlat_s2k4t")
+Button/styles/pressed = SubResource("StyleBoxFlat_3xydq")
+
+[node name="ControlScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nbo3w")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.560784)
+
+[node name="Info" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 125.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("1_dpm26")
+text = "Aqui coloca o texto de controles e assim vai"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 1
+clip_text = true
+
+[node name="btnReturn" type="Button" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -24.0
+offset_top = -34.0
+offset_right = 25.0
+offset_bottom = -12.0
+grow_horizontal = 2
+grow_vertical = 0
+focus_neighbor_top = NodePath("../btnQuit")
+theme = SubResource("Theme_b2x8h")
+theme_override_colors/font_color = Color(0.968627, 0.968627, 0.968627, 1)
+theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.772549, 1, 0.152941, 1)
+theme_override_colors/font_focus_color = Color(0.968627, 0.992157, 0, 1)
+theme_override_fonts/font = ExtResource("1_dpm26")
+text = "Return"
+
+[connection signal="pressed" from="btnReturn" to="." method="_on_btn_return_pressed"]
