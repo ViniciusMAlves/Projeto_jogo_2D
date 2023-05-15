@@ -7,7 +7,8 @@ var checkpoint_pos = Vector2(128, 16)
 func _ready():
 	Global.coins = 0
 	Global.silabas = ""
-	Global.sene = path
+	if Global.is_dead:
+		Global.player_health = 3
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

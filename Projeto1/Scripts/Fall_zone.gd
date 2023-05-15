@@ -12,5 +12,10 @@ func _process(delta):
 
 
 func _on_body_entered(body):
-	print(body.name)	
-	get_tree().change_scene_to_file("res://prefabs/GameOver.tscn")
+	if body.name == "Player":
+		Global.player_life -= 1
+		Global.player_health = 3
+		if Global.player_life < 1:
+			get_tree().change_scene_to_file("res://prefabs/GameOver.tscn")
+		else :
+			get_tree().reload_current_scene()

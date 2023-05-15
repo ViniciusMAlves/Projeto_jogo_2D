@@ -8,6 +8,7 @@ var is_grounded
 
 var player_health = 3
 var max_health = 3
+var player_life = 3
 
 var hurted = false
 
@@ -125,6 +126,7 @@ func _on_hurtbox_area_entered(area):
 		
 func Damage():
 	player_health -= 1
+	Global.player_health -= 1
 	hurted = true
 	emit_signal("chage_life", player_health)
 	knockback()
@@ -150,7 +152,13 @@ func MoveBox(delta):
 		is_pushing = true
 		
 func GameOver():
-	if player_health < 1:
+	if Global.player_health < 1:
 		queue_free()
+		Global.is_dead = true
+		Global.player_life -= 1
+		Global.player_health = 3
+		get_tree().reload_current_scene()
+		
+	if  Global.player_life < 1:
 		get_tree().change_scene_to_file("res://prefabs/GameOver.tscn")
 	

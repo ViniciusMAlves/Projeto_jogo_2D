@@ -22,3 +22,7 @@ res://Levels/control_screen.tscn
 res://Levels/Creditos_screen.tscn
 res://Scripts/ControlScreen.gd
 res://Scripts/CreditosScreen.gd
+res://Scripts/GameOver.gd
+res://Scripts/Global.gd
+res://Scripts/Reset_Level.gd
+res://Scripts/Fall_zone.gd
