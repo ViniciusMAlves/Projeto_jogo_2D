@@ -28,3 +28,7 @@ func _on_btn_quit_pressed():
 
 func _on_btn_creditos_pressed():
 	get_tree().change_scene_to_file("res://Levels/Creditos_screen.tscn")
+
+
+func _on_btn_start_img_pressed():
+	get_tree().change_scene_to_file("res://Levels/Level_01.tscn")

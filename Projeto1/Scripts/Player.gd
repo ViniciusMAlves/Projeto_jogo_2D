@@ -20,14 +20,18 @@ var is_pushing = false
 @onready var raycasts = $raycasts
 
 signal  chage_life(player_health)
+signal  reset_life()
 
 
 func _ready():
 	Global.set("player", self)
 	var character_node = get_node("../HUB/HBoxContainer/Holder")
 	var callable = Callable(character_node, "on_change_life")
+	var callable_reset = Callable(character_node, "reset_life")
 	connect("chage_life", callable)
+	connect("reset_life", callable_reset)
 	emit_signal("chage_life", max_health)
+	emit_signal("reset_life")
 	position = Global.checkpoint_pos
 	
 
@@ -128,7 +132,7 @@ func Damage():
 	player_health -= 1
 	Global.player_health -= 1
 	hurted = true
-	emit_signal("chage_life", player_health)
+	emit_signal("chage_life", Global.player_health)
 	knockback()
 	get_node("Hurtbox/Collision").set_deferred("disabled", true)
 	await get_tree().create_timer(0.5).timeout
@@ -153,11 +157,12 @@ func MoveBox(delta):
 		
 func GameOver():
 	if Global.player_health < 1:
-		queue_free()
 		Global.is_dead = true
 		Global.player_life -= 1
 		Global.player_health = 3
-		get_tree().reload_current_scene()
+		emit_signal("reset_life")
+		
+		position = Global.checkpoint_pos
 		
 	if  Global.player_life < 1:
 		get_tree().change_scene_to_file("res://prefabs/GameOver.tscn")

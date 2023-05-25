@@ -1,9 +1,9 @@
 [gd_scene load_steps=11 format=3 uid="uid://cyd6nefd7jt01"]
 
-[ext_resource type="FontFile" uid="uid://1pq1sb417r8i" path="res://RobotoMono-VariableFont_wght.ttf" id="1_0605d"]
 [ext_resource type="Script" path="res://Scripts/start_screen.gd" id="1_wiop7"]
 [ext_resource type="Texture2D" uid="uid://bnuqs4rl2l11r" path="res://Assets/Scenes/Seasonal Tilesets/1 - Grassland/Background parts/_Complete_static_BG_(288 x 208).png" id="2_e43gx"]
 [ext_resource type="TileSet" uid="uid://u8n223okdf5m" path="res://Tiles/BaseTilemap.tres" id="3_jet7m"]
+[ext_resource type="FontFile" uid="uid://cqdrreoeeopoj" path="res://Fonts/Minecraft.ttf" id="4_3162m"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aaqrn"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -79,12 +79,24 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -38.5
-offset_top = -37.0
-offset_right = 38.5
-offset_bottom = 37.0
+offset_left = -32.5
+offset_top = -38.0
+offset_right = 32.5
+offset_bottom = 38.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Label" type="Label" parent="controls"]
+texture_filter = 1
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_3162m")
+theme_override_font_sizes/font_size = 22
+text = "O Construtor de Palavras"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="btnStart" type="Button" parent="controls"]
 texture_filter = 1
@@ -95,7 +107,7 @@ theme_override_colors/font_color = Color(0.968627, 0.968627, 0.968627, 1)
 theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0.772549, 1, 0.152941, 1)
 theme_override_colors/font_focus_color = Color(0.968627, 0.992157, 0, 1)
-theme_override_fonts/font = ExtResource("1_0605d")
+theme_override_fonts/font = ExtResource("4_3162m")
 text = "Start"
 
 [node name="btnControls" type="Button" parent="controls"]
@@ -106,7 +118,7 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0.772549, 1, 0.152941, 1)
 theme_override_colors/font_focus_color = Color(0.968627, 0.992157, 0, 1)
-theme_override_fonts/font = ExtResource("1_0605d")
+theme_override_fonts/font = ExtResource("4_3162m")
 text = "Controls"
 
 [node name="btnQuit" type="Button" parent="controls"]
@@ -117,7 +129,7 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0.772549, 1, 0.152941, 1)
 theme_override_colors/font_focus_color = Color(0.968627, 0.992157, 0, 1)
-theme_override_fonts/font = ExtResource("1_0605d")
+theme_override_fonts/font = ExtResource("4_3162m")
 text = "Quit"
 
 [node name="btnCreditos" type="Button" parent="controls"]
@@ -129,7 +141,7 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0.772549, 1, 0.152941, 1)
 theme_override_colors/font_focus_color = Color(0.968627, 0.992157, 0, 1)
-theme_override_fonts/font = ExtResource("1_0605d")
+theme_override_fonts/font = ExtResource("4_3162m")
 text = "Creditos"
 
 [connection signal="pressed" from="controls/btnStart" to="." method="_on_btn_start_pressed"]

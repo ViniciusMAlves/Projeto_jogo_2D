@@ -8,8 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://cx81tpiqvwj01" path="res://Assets/Scenes/Seasonal Tilesets/1 - Grassland/Background parts/3 - Cloud_cover_1.png" id="4"]
 [ext_resource type="Shader" path="res://Levels/cloud.gdshader" id="4_jmjxv"]
 [ext_resource type="Texture2D" uid="uid://djojdfr6cs04a" path="res://Assets/Scenes/Seasonal Tilesets/1 - Grassland/Background parts/2 - Hills.png" id="5"]
-[ext_resource type="PackedScene" uid="uid://c1kflod4xprf2" path="res://Itens/silaba_ba.tscn" id="5_6y8cp"]
 [ext_resource type="Texture2D" uid="uid://draq1firahhus" path="res://Assets/Scenes/Seasonal Tilesets/1 - Grassland/Background parts/4 - Cloud_cover_2.png" id="6"]
+[ext_resource type="PackedScene" uid="uid://b3octw38kvvul" path="res://Itens/silaba_vi.tscn" id="6_l6ess"]
 [ext_resource type="Texture2D" uid="uid://dpm2gg6xqield" path="res://Assets/Scenes/Seasonal Tilesets/1 - Grassland/Background parts/5 - Sky_color.png" id="7"]
 [ext_resource type="Script" path="res://Scripts/Fall_zone.gd" id="9_g5nk5"]
 [ext_resource type="PackedScene" uid="uid://b1d8pl3bfcspd" path="res://Scenes/mushroom.tscn" id="11_ye6jr"]
@@ -621,8 +621,8 @@ position = Vector2(622, 64)
 
 [node name="Silabas" type="Node2D" parent="."]
 
-[node name="Silaba_BA" parent="Silabas" instance=ExtResource("5_6y8cp")]
-position = Vector2(220, 32)
+[node name="Silaba_VI" parent="Silabas" instance=ExtResource("6_l6ess")]
+position = Vector2(230, 33)
 
 [node name="Goal" parent="." instance=ExtResource("18_isg10")]
 position = Vector2(837, -160)

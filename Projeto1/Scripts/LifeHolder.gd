@@ -10,16 +10,21 @@ var life_size = 32
 func on_change_life(player_healph):
 	if player_healph == 2:
 		if Heart3 != null:
-			Heart3.queue_free()
+			Heart3.visible = false
 	
 	if player_healph == 1:
 		if Heart2 != null:
-			Heart2.queue_free()
+			Heart2.visible = false
 	
 	if player_healph == 0:
 		if Heart1 != null:
-			Heart1.queue_free()
-			
-	#$lifes.rect_size.x = player_healph * life_size
+			Heart1.visible = false
 
+func reset_life():
+	if Heart1 != null:
+		Heart1.visible = true
+	if Heart2 != null:
+		Heart2.visible = true
+	if Heart3 != null:
+		Heart3.visible = true
 

@@ -1,0 +1,102 @@
+[gd_scene load_steps=3 format=3 uid="uid://bg00avwj52bur"]
+
+[ext_resource type="Texture2D" uid="uid://bn34annat5xp2" path="res://Assets/Scenes/Background/Gray.png" id="1_tmdcm"]
+[ext_resource type="TileSet" uid="uid://u8n223okdf5m" path="res://Tiles/BaseTilemap.tres" id="2_j3w6j"]
+
+[node name="Selecao_nivel" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="fundo" type="Node2D" parent="."]
+
+[node name="Gray" type="Sprite2D" parent="fundo"]
+position = Vector2(45, 41)
+texture = ExtResource("1_tmdcm")
+
+[node name="Gray2" type="Sprite2D" parent="fundo"]
+position = Vector2(45, 105)
+texture = ExtResource("1_tmdcm")
+
+[node name="Gray3" type="Sprite2D" parent="fundo"]
+position = Vector2(45, 168)
+texture = ExtResource("1_tmdcm")
+
+[node name="Gray4" type="Sprite2D" parent="fundo"]
+position = Vector2(109, 168)
+texture = ExtResource("1_tmdcm")
+
+[node name="Gray5" type="Sprite2D" parent="fundo"]
+position = Vector2(109, 104)
+texture = ExtResource("1_tmdcm")
+
+[node name="Gray6" type="Sprite2D" parent="fundo"]
+position = Vector2(109, 40)
+texture = ExtResource("1_tmdcm")
+
+[node name="Gray7" type="Sprite2D" parent="fundo"]
+position = Vector2(173, 40)
+texture = ExtResource("1_tmdcm")
+
+[node name="Gray8" type="Sprite2D" parent="fundo"]
+position = Vector2(173, 104)
+texture = ExtResource("1_tmdcm")
+
+[node name="Gray9" type="Sprite2D" parent="fundo"]
+position = Vector2(173, 168)
+texture = ExtResource("1_tmdcm")
+
+[node name="Gray10" type="Sprite2D" parent="fundo"]
+position = Vector2(237, 168)
+texture = ExtResource("1_tmdcm")
+
+[node name="Gray11" type="Sprite2D" parent="fundo"]
+position = Vector2(237, 104)
+texture = ExtResource("1_tmdcm")
+
+[node name="Gray12" type="Sprite2D" parent="fundo"]
+position = Vector2(237, 40)
+texture = ExtResource("1_tmdcm")
+
+[node name="Gray13" type="Sprite2D" parent="fundo"]
+position = Vector2(301, 40)
+texture = ExtResource("1_tmdcm")
+
+[node name="Gray14" type="Sprite2D" parent="fundo"]
+position = Vector2(301, 104)
+texture = ExtResource("1_tmdcm")
+
+[node name="Gray15" type="Sprite2D" parent="fundo"]
+position = Vector2(301, 168)
+texture = ExtResource("1_tmdcm")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0235294, 0.0235294, 0.0235294, 0.427451)
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("2_j3w6j")
+format = 2
+layer_0/tile_data = PackedInt32Array(0, 0, 0, 720896, 0, 2, 720915, 131072, 2, 19, 131072, 0, 65555, 131072, 1, 131091, 131072, 1, 196627, 131072, 1, 262163, 131072, 1, 327699, 131072, 1, 393235, 131072, 1, 458771, 131072, 1, 524307, 131072, 1, 589843, 131072, 1, 655379, 131072, 1, 720914, 65536, 2, 720913, 65536, 2, 720912, 65536, 2, 720911, 65536, 2, 720910, 65536, 2, 720909, 65536, 2, 720908, 65536, 2, 720907, 65536, 2, 720906, 65536, 2, 720905, 65536, 2, 720904, 65536, 2, 720903, 65536, 2, 720902, 65536, 2, 720901, 65536, 2, 720900, 65536, 2, 720899, 65536, 2, 720898, 65536, 2, 720897, 65536, 2, 655360, 0, 1, 589824, 0, 1, 524288, 0, 1, 458752, 0, 1, 393216, 0, 1, 327680, 0, 1, 262144, 0, 1, 196608, 0, 1, 131072, 0, 1, 65536, 0, 1, 1, 65536, 0, 2, 65536, 0, 3, 65536, 0, 4, 65536, 0, 5, 65536, 0, 6, 65536, 0, 7, 65536, 0, 8, 65536, 0, 9, 65536, 0, 10, 65536, 0, 11, 65536, 0, 12, 65536, 0, 13, 65536, 0, 14, 65536, 0, 15, 65536, 0, 16, 65536, 0, 17, 65536, 0, 18, 65536, 0)
+
+[node name="controls" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.5
+offset_top = -37.0
+offset_right = 38.5
+offset_bottom = 37.0
+grow_horizontal = 2
+grow_vertical = 2

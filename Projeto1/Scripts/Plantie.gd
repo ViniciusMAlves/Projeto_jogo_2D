@@ -50,10 +50,11 @@ func _on_hitbox_body_entered(body):
 func _set_animation():
 	var anim = "Idle"
 	
-	if $playerDetector.overlaps_body(player):
-		anim = "attack"
-	elif velocity.x != 0:
-		anim = "Idle"
+	if player != null:
+		if $playerDetector.overlaps_body(player):
+			anim = "attack"
+		elif velocity.x != 0:
+			anim = "Idle"
 	
 	if  hitted:
 		anim = "hit"

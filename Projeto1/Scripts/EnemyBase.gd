@@ -5,6 +5,7 @@ class_name enemyBase
 @export var health = 1
 var move_direction = -1
 var hitted = false
+var delay = 0.1
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -47,7 +48,7 @@ func _on_hitbox_body_entered(body):
 		get_node("hitbox/Collision").set_deferred("disabled", true)
 		set_physics_process(false)
 		get_node("Collision").set_deferred("disabled", true)
-		await get_tree().create_timer(0.7).timeout
+		await get_tree().create_timer(delay).timeout
 		queue_free()		
 		
 	

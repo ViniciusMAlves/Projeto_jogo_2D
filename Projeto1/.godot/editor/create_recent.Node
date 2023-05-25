@@ -1,9 +1,10 @@
-Button
 Label
-ColorRect
 Node2D
-TileMap
 VBoxContainer
+ColorRect
+TextureButton
+Button
+TileMap
 AnimationPlayer
 CollisionShape2D
 StaticBody2D
@@ -14,7 +15,6 @@ CharacterBody2D
 Area2D
 Timer
 TextureRect
-TextureButton
 CanvasLayer
 RayCast2D
 AudioStreamPlayer3D

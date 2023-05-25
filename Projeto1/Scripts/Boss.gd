@@ -4,6 +4,7 @@ signal BossDead
 
 func _ready():
 	set_physics_process(false)
+	delay = 0.7
 
 func _process(delta):
 	apply_gravity(delta)

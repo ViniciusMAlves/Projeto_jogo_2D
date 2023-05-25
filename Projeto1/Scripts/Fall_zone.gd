@@ -1,9 +1,12 @@
 extends Area2D
 
+signal  reset_life()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	var character_node = get_node("../HUB/HBoxContainer/Holder")
+	var callable = Callable(character_node, "reset_life")
+	connect("reset_life", callable)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -18,4 +21,5 @@ func _on_body_entered(body):
 		if Global.player_life < 1:
 			get_tree().change_scene_to_file("res://prefabs/GameOver.tscn")
 		else :
-			get_tree().reload_current_scene()
+			emit_signal("reset_life")
+			body.position = Global.checkpoint_pos
