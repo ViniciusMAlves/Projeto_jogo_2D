@@ -4,7 +4,7 @@ extends Control
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$controls/btnStart.grab_focus()
-	Global.checkpoint_pos = Vector2(128, 16)
+	Global.checkpoint_pos = Vector2(0, 0)
 	Global.player_health = 3
 	Global.player_life = 3
 

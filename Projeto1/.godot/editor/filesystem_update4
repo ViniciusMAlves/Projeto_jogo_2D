@@ -1,13 +1,8 @@
 res://default_env.tres
+res://Levels/Level_01.tscn
 res://Scripts/overlay.gd
 res://Scripts/Player.gd
 res://Tiles/BaseTilemap.tres
-res://Itens/silaba_a.tscn
-res://Itens/silaba_ven.tscn
-res://Itens/silaba_vi.tscn
-res://Itens/silaba_jan.tscn
-res://Itens/silaba_te.tscn
-res://Levels/Level_01.tscn
 res://Levels/Level_02.tscn
 res://Levels/Final.tscn
 res://Levels/Level_Boss.tscn
@@ -15,3 +10,5 @@ res://Levels/Sel_nivel.tscn
 res://prefabs/hub.tscn
 res://Levels/start_screen.tscn
 res://Levels/Creditos_screen.tscn
+res://Scenes/mushroom.tscn
+res://prefabs/spikes.tscn

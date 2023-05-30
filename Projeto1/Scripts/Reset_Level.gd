@@ -1,6 +1,6 @@
 extends Node
 
-var checkpoint_pos = Vector2(128, 16)
+var checkpoint_pos = Vector2(0, 0)
 @export var path = ""
 
 # Called when the node enters the scene tree for the first time.
