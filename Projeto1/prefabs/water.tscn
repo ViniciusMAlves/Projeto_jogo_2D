@@ -1,0 +1,117 @@
+[gd_scene load_steps=7 format=3 uid="uid://dvgr06gu4cakb"]
+
+[ext_resource type="Texture2D" uid="uid://couqw54d8y2lx" path="res://Assets/Scenes/Seasonal Tilesets/5 - Misc. universal tiles/Water_frames (16 x 32).png" id="1_qbjii"]
+[ext_resource type="PackedScene" uid="uid://dl552moo5pfy6" path="res://prefabs/FallZone.tscn" id="2_vl6e2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4dmnu"]
+size = Vector2(14, 12)
+
+[sub_resource type="Animation" id="Animation_sjg48"]
+resource_name = "Idle"
+length = 0.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("texture:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_qbjii")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("texture:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("texture:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="Animation" id="Animation_v2c6d"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("texture:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_qbjii")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("texture:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("texture:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mbgg0"]
+_data = {
+"Idle": SubResource("Animation_sjg48"),
+"RESET": SubResource("Animation_v2c6d")
+}
+
+[node name="Water" type="Area2D"]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_4dmnu")
+
+[node name="texture" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(1.28, 1)
+texture = ExtResource("1_qbjii")
+hframes = 3
+
+[node name="anima" type="AnimationPlayer" parent="."]
+autoplay = "Idle"
+speed_scale = -0.35
+libraries = {
+"": SubResource("AnimationLibrary_mbgg0")
+}
+
+[node name="fall_zone" parent="." instance=ExtResource("2_vl6e2")]
+position = Vector2(-5, 11)
+scale = Vector2(0.120001, 0.480001)

@@ -1,6 +1,8 @@
 AudioStreamPlayer2D
-Area2D
+AudioStreamPlayer3D
 CollisionShape2D
+AnimationPlayer
+Area2D
 Node2D
 Label
 VBoxContainer
@@ -8,7 +10,6 @@ ColorRect
 TextureButton
 Button
 TileMap
-AnimationPlayer
 StaticBody2D
 GPUParticles2D
 Sprite2D
@@ -17,7 +18,6 @@ Timer
 TextureRect
 CanvasLayer
 RayCast2D
-AudioStreamPlayer3D
 VisibleOnScreenNotifier2D
 Marker2D
 RigidBody2D
