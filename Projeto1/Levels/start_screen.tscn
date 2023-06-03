@@ -5,19 +5,19 @@
 [ext_resource type="TileSet" uid="uid://u8n223okdf5m" path="res://Tiles/BaseTilemap.tres" id="3_jet7m"]
 [ext_resource type="FontFile" uid="uid://cqdrreoeeopoj" path="res://Fonts/Minecraft.ttf" id="4_3162m"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aaqrn"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g2jgp"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_un8c3"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4fi57"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v0sbn"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y3xrt"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ei7ua"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_33mbo"]
 bg_color = Color(0, 0, 0, 0)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w713r"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ar3o0"]
 
 [sub_resource type="Theme" id="Theme_o3v4d"]
 Button/colors/font_color = Color(0, 0, 0, 1)
@@ -37,11 +37,11 @@ Button/constants/h_separation = 0
 Button/constants/outline_size = 0
 Button/font_sizes/font_size = 16
 Button/fonts/font = null
-Button/styles/disabled = SubResource("StyleBoxFlat_aaqrn")
-Button/styles/focus = SubResource("StyleBoxFlat_un8c3")
-Button/styles/hover = SubResource("StyleBoxFlat_v0sbn")
-Button/styles/normal = SubResource("StyleBoxFlat_ei7ua")
-Button/styles/pressed = SubResource("StyleBoxFlat_w713r")
+Button/styles/disabled = SubResource("StyleBoxFlat_g2jgp")
+Button/styles/focus = SubResource("StyleBoxFlat_4fi57")
+Button/styles/hover = SubResource("StyleBoxFlat_y3xrt")
+Button/styles/normal = SubResource("StyleBoxFlat_33mbo")
+Button/styles/pressed = SubResource("StyleBoxFlat_ar3o0")
 
 [node name="StartScreen" type="Control"]
 layout_mode = 3

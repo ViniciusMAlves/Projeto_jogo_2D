@@ -1,7 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://c5tnx3rfis0og"]
+[gd_scene load_steps=12 format=3 uid="uid://c5tnx3rfis0og"]
 
 [ext_resource type="Script" path="res://Scripts/ControlScreen.gd" id="1_nbo3w"]
 [ext_resource type="FontFile" uid="uid://cqdrreoeeopoj" path="res://Fonts/Minecraft.ttf" id="2_4rs27"]
+[ext_resource type="Texture2D" uid="uid://dm6xpf3edy6ev" path="res://Assets/Scenes/Menu/Keyboard/arrowR.png" id="3_mwjcm"]
+[ext_resource type="Texture2D" uid="uid://dylfhbcifcf7q" path="res://Assets/Scenes/Menu/Keyboard/arrowL.png" id="4_rlbmv"]
+[ext_resource type="Texture2D" uid="uid://duixpuakukf66" path="res://Assets/Scenes/Menu/Keyboard/space.png" id="5_n4tc0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ps4mt"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -59,19 +62,77 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.560784)
 
-[node name="Info" type="Label" parent="."]
-texture_filter = 1
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 125.0
+offset_bottom = 151.0
 grow_horizontal = 2
+
+[node name="frente" type="Node2D" parent="VBoxContainer"]
+
+[node name="Info" type="Label" parent="VBoxContainer/frente"]
+texture_filter = 1
+offset_left = 42.0
+offset_top = 12.0
+offset_right = 319.0
+offset_bottom = 34.0
+size_flags_horizontal = 8
+size_flags_vertical = 0
 theme_override_fonts/font = ExtResource("2_4rs27")
-text = "Aqui coloca o texto de controles e assim vai"
-horizontal_alignment = 1
+theme_override_font_sizes/font_size = 18
+text = "Mover para frente"
 vertical_alignment = 1
-autowrap_mode = 1
-clip_text = true
+
+[node name="ArrowL" type="Sprite2D" parent="VBoxContainer/frente"]
+texture_filter = 1
+position = Vector2(24, 20)
+scale = Vector2(1.5625, 1.56667)
+texture = ExtResource("3_mwjcm")
+
+[node name="trás" type="Node2D" parent="VBoxContainer"]
+position = Vector2(-1, 24)
+
+[node name="Info" type="Label" parent="VBoxContainer/trás"]
+texture_filter = 1
+offset_left = 42.0
+offset_top = 12.0
+offset_right = 320.0
+offset_bottom = 40.0
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("2_4rs27")
+theme_override_font_sizes/font_size = 18
+text = "Mover para trás"
+vertical_alignment = 1
+
+[node name="ArrowL" type="Sprite2D" parent="VBoxContainer/trás"]
+texture_filter = 1
+position = Vector2(26, 26)
+scale = Vector2(1.5625, 1.56667)
+texture = ExtResource("4_rlbmv")
+
+[node name="pular" type="Node2D" parent="VBoxContainer"]
+position = Vector2(0, 55)
+
+[node name="Info" type="Label" parent="VBoxContainer/pular"]
+texture_filter = 1
+offset_left = 144.0
+offset_top = 14.0
+offset_right = 320.0
+offset_bottom = 42.0
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("2_4rs27")
+theme_override_font_sizes/font_size = 18
+text = "Mover para pular"
+vertical_alignment = 1
+
+[node name="ArrowL" type="Sprite2D" parent="VBoxContainer/pular"]
+texture_filter = 1
+position = Vector2(77, 28)
+scale = Vector2(1.5625, 1.56667)
+texture = ExtResource("5_n4tc0")
 
 [node name="btnReturn" type="Button" parent="."]
 texture_filter = 1

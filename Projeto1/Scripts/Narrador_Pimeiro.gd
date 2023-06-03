@@ -1,5 +1,6 @@
 extends Control
 
+@export var tela = ''
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -12,4 +13,4 @@ func _process(delta):
 
 
 func _on_audio_stream_player_2d_finished():
-	print('Acabo')
+	get_tree().change_scene_to_file(tela)

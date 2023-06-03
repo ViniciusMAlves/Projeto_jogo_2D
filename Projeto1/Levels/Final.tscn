@@ -1,9 +1,49 @@
-[gd_scene load_steps=3 format=3 uid="uid://2xxj0qspsqw4"]
+[gd_scene load_steps=10 format=3 uid="uid://2xxj0qspsqw4"]
 
 [ext_resource type="TileSet" uid="uid://u8n223okdf5m" path="res://Tiles/BaseTilemap.tres" id="1_elg7j"]
+[ext_resource type="Script" path="res://Scripts/Final.gd" id="1_hrjih"]
 [ext_resource type="FontFile" uid="uid://cqdrreoeeopoj" path="res://Fonts/Minecraft.ttf" id="2_v1if0"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aaqrn"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_un8c3"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v0sbn"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ei7ua"]
+bg_color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w713r"]
+
+[sub_resource type="Theme" id="Theme_shphv"]
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_disabled_color = Color(0, 0, 0, 1)
+Button/colors/font_focus_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(0, 0, 0, 1)
+Button/colors/icon_disabled_color = Color(0, 0, 0, 1)
+Button/colors/icon_focus_color = Color(0, 0, 0, 1)
+Button/colors/icon_hover_color = Color(0, 0, 0, 1)
+Button/colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+Button/colors/icon_normal_color = Color(0, 0, 0, 1)
+Button/colors/icon_pressed_color = Color(0, 0, 0, 1)
+Button/constants/h_separation = 0
+Button/constants/outline_size = 0
+Button/font_sizes/font_size = 16
+Button/fonts/font = null
+Button/styles/disabled = SubResource("StyleBoxFlat_aaqrn")
+Button/styles/focus = SubResource("StyleBoxFlat_un8c3")
+Button/styles/hover = SubResource("StyleBoxFlat_v0sbn")
+Button/styles/normal = SubResource("StyleBoxFlat_ei7ua")
+Button/styles/pressed = SubResource("StyleBoxFlat_w713r")
+
 [node name="Final" type="Node2D"]
+script = ExtResource("1_hrjih")
 
 [node name="TileMap" type="TileMap" parent="."]
 texture_filter = 1
@@ -14,11 +54,45 @@ layer_0/tile_data = PackedInt32Array(65536, 0, 1, 131072, 0, 1, 196608, 0, 1, 26
 
 [node name="GameFinish" type="Label" parent="."]
 texture_filter = 1
-offset_right = 320.0
-offset_bottom = 190.0
+offset_left = 38.0
+offset_top = 15.0
+offset_right = 278.0
+offset_bottom = 72.0
 theme_override_fonts/font = ExtResource("2_v1if0")
 theme_override_font_sizes/font_size = 24
-text = "Conseguiu !!!
-e agora?"
+text = "Muito obrigado por  jogar meu jogo"
 horizontal_alignment = 1
-vertical_alignment = 1
+autowrap_mode = 1
+clip_text = true
+
+[node name="GameFinish2" type="Label" parent="."]
+texture_filter = 1
+offset_left = 23.0
+offset_top = 74.0
+offset_right = 291.0
+offset_bottom = 139.0
+theme_override_fonts/font = ExtResource("2_v1if0")
+theme_override_font_sizes/font_size = 12
+text = "Essa é uma demo e o jogo completo está em desenvolvimento 
+Podem entrar em contato comigo pelo email: vinial1508@gmail.com"
+horizontal_alignment = 1
+autowrap_mode = 1
+clip_text = true
+
+[node name="btnMenu" type="Button" parent="."]
+texture_filter = 1
+offset_left = 121.0
+offset_top = 151.0
+offset_right = 194.0
+offset_bottom = 180.0
+focus_neighbor_top = NodePath("../btnCreditos")
+theme = SubResource("Theme_shphv")
+theme_override_colors/font_color = Color(0.968627, 0.968627, 0.968627, 1)
+theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.772549, 1, 0.152941, 1)
+theme_override_colors/font_focus_color = Color(0.968627, 0.992157, 0, 1)
+theme_override_fonts/font = ExtResource("2_v1if0")
+theme_override_font_sizes/font_size = 28
+text = "Menu"
+
+[connection signal="pressed" from="btnMenu" to="." method="_on_btn_start_pressed"]

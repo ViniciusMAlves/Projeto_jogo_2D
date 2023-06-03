@@ -64,10 +64,19 @@ texture_filter = 1
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 125.0
+offset_bottom = 157.0
 grow_horizontal = 2
 theme_override_fonts/font = ExtResource("2_eau0p")
-text = "Aqui coloca os creditos falar da onde foi tirado os sprits"
+theme_override_font_sizes/font_size = 13
+text = "
+É um projeto da UNISATC
+Desenvolvedor: Vinicius Moreira Alves
+Orientador: Fabiano Naspolini de Oliveira
+
+A arte utilizada no jogo são de:
+https://pixelfrog-assets.itch.io/pixel-adventure-1
+https://grafxkid.itch.io/seasonal-tilesets
+"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 1

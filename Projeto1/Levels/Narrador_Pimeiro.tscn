@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://Scripts/Narrador_Pimeiro.gd" id="1_pv4d6"]
 [ext_resource type="FontFile" uid="uid://cqdrreoeeopoj" path="res://Fonts/Minecraft.ttf" id="2_0gl2d"]
-[ext_resource type="AudioStream" uid="uid://da5d28yqrjf48" path="res://Sounds/Narração/Narracao_1.ogg" id="3_41r35"]
+[ext_resource type="AudioStream" uid="uid://da5d28yqrjf48" path="res://Sounds/Narração/Level 1/Narracao_1.ogg" id="3_41r35"]
 
-[node name="Narrador_prim" type="Control"]
+[node name="Narrador_L1_Prim" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -12,6 +12,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_pv4d6")
+tela = "res://Levels/Level_01.tscn"
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -34,7 +35,7 @@ theme_override_fonts/font = ExtResource("2_0gl2d")
 theme_override_font_sizes/font_size = 8
 text = "Oi, 
 Muito prazer, eu sou o narrador. E eu vou contar uma história para você.
-Uma vez eu conheci um menino que adorava descobrir coisas novas, ele era um …
+Uma vez eu conheci um menino que adorava descobrir coisas novas, ele era um 
 um…
 Como era a palavra?
 Você pode me ajudar a encontrar a palavra para continuar minha história?
@@ -44,8 +45,8 @@ vertical_alignment = 1
 autowrap_mode = 1
 clip_text = true
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="narracao" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_41r35")
 autoplay = true
 
-[connection signal="finished" from="AudioStreamPlayer2D" to="." method="_on_audio_stream_player_2d_finished"]
+[connection signal="finished" from="narracao" to="." method="_on_audio_stream_player_2d_finished"]

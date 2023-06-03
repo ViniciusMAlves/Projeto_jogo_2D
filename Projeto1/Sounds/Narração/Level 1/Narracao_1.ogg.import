@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://da5d28yqrjf48"
+path="res://.godot/imported/Narracao_1.ogg-637c0af20a1f9d08dfb5be35b723e0f5.oggvorbisstr"
+
+[deps]
+
+source_file="res://Sounds/Narração/Level 1/Narracao_1.ogg"
+dest_files=["res://.godot/imported/Narracao_1.ogg-637c0af20a1f9d08dfb5be35b723e0f5.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
