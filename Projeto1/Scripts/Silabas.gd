@@ -1,6 +1,7 @@
 extends Area2D
 
 @export var Silabas = "" 
+@export var Silabas_ant = "" 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -18,6 +19,7 @@ func _on_anim_animation_finished(anim_name):
 
 
 func _on_body_entered(body):
-	$anim.play("collected")
-	Global.silabas += Silabas
-	print(Global.silabas)
+	if Global.silabas == Silabas_ant:
+		$anim.play("collected")
+		Global.silabas += Silabas
+		print(Global.silabas)

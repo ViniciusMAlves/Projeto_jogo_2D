@@ -1,7 +1,7 @@
+Node2D
 Button
 TextureButton
 Label
-Node2D
 VBoxContainer
 TextureRect
 AudioStreamPlayer2D

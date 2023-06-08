@@ -1,6 +1,7 @@
 extends Area2D
 
 @export var letra = "" 
+@export var letra_ant = "" 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -12,9 +13,10 @@ func _process(delta):
 	pass
 
 func _on_Letras_body_entered(body):
-	$Anima.play("collected")
-	Global.silabas += letra
-	print(Global.silabas)
+	if Global.silabas == letra_ant:
+		$Anima.play("collected")
+		Global.silabas += letra
+		print(Global.silabas)
 
 
 func _on_anima_animation_finished(anim_name):

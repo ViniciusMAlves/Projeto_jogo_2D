@@ -50,6 +50,18 @@ tracks/2/keys = {
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../anima:speed_scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
 
 [sub_resource type="Animation" id="Animation_0201g"]
 length = 0.001
@@ -88,6 +100,18 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../anima:speed_scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.5]
 }
 
 [sub_resource type="Animation" id="Animation_o53ft"]
@@ -159,6 +183,18 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0.4)
 }
 tracks/4/use_blend = true
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../anima:speed_scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.5]
+}
 
 [sub_resource type="Animation" id="Animation_pjp6j"]
 resource_name = "hit"
@@ -223,8 +259,8 @@ _data = {
 "hit": SubResource("Animation_pjp6j")
 }
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_kbcwa"]
-radius = 66.0303
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kh7yw"]
+size = Vector2(295, 39)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gum38"]
 size = Vector2(28, 6)
@@ -247,6 +283,7 @@ shape = SubResource("RectangleShape2D_ma2ch")
 [node name="anima" type="AnimationPlayer" parent="."]
 root_node = NodePath("../collision")
 autoplay = "Idle"
+speed_scale = 0.5
 libraries = {
 "": SubResource("AnimationLibrary_42rvo")
 }
@@ -258,8 +295,8 @@ position = Vector2(-20, -23)
 collision_layer = 0
 
 [node name="collision" type="CollisionShape2D" parent="playerDetector"]
-position = Vector2(0, -17)
-shape = SubResource("CircleShape2D_kbcwa")
+position = Vector2(3.5, -20.5)
+shape = SubResource("RectangleShape2D_kh7yw")
 debug_color = Color(0.835294, 0.384314, 0.137255, 0.419608)
 
 [node name="hitbox" type="Area2D" parent="."]

@@ -3,6 +3,7 @@ extends Area2D
 @onready var changer = get_parent().get_node("Transition_in")
 
 @export var path: String
+@export var palavra = ''
 
 
 # Called when the node enters the scene tree for the first time.
@@ -17,7 +18,8 @@ func _process(delta):
 
 func _on_body_entered(body):
 	if body.name == "Player":
-		$confete.emitting = true
-		changer.change_scene(path)
-		Global.checkpoint_pos = Vector2(128, 16)
-		$victoryFx.play()
+		if Global.silabas == palavra:
+			$confete.emitting = true
+			changer.change_scene(path)
+			Global.checkpoint_pos = Vector2(128, 16)
+			$victoryFx.play()

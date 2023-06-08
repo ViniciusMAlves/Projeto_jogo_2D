@@ -13,7 +13,10 @@ config_version=5
 config/name="O Construtor de Palavras"
 run/main_scene="res://Levels/start_screen.tscn"
 config/features=PackedStringArray("4.0")
-config/icon="res://icon.png"
+boot_splash/image="res://Carregamento.png"
+boot_splash/use_filter=false
+config/icon="res://Icon-CP.png"
+config/windows_native_icon="res://icon.ico"
 
 [autoload]
 

@@ -655,9 +655,22 @@ position = Vector2(2313, -143)
 
 [node name="Silaba_VI" parent="Silabas" instance=ExtResource("15_xtjro")]
 position = Vector2(208, -46)
+Silabas = "VI"
 
 [node name="Silaba_A" parent="Silabas" instance=ExtResource("15_y78xf")]
 position = Vector2(1512, -4)
+Silabas = "A"
+Silabas_ant = "VI"
+
+[node name="Silaba_JAN" parent="Silabas" instance=ExtResource("20_p42ot")]
+position = Vector2(2685, -165)
+Silabas = "JAN"
+Silabas_ant = "VIA"
+
+[node name="Silaba_TE" parent="Silabas" instance=ExtResource("22_rilwm")]
+position = Vector2(3508, -143)
+Silabas = "TE"
+Silabas_ant = "VIAJAN"
 
 [node name="Player" parent="." instance=ExtResource("1")]
 position = Vector2(0, 0)
@@ -791,14 +804,9 @@ position = Vector2(1383, -31)
 coin_instance = Array[PackedScene]([ExtResource("15_7ty1n")])
 cois = 5
 
-[node name="Silaba_JAN" parent="." instance=ExtResource("20_p42ot")]
-position = Vector2(2685, -165)
-
 [node name="Goal" parent="." instance=ExtResource("21_gnyyf")]
 position = Vector2(4251, -64)
 path = "res://Levels/Narrador_L1_Fim.tscn"
-
-[node name="Silaba_TE" parent="." instance=ExtResource("22_rilwm")]
-position = Vector2(3508, -143)
+palavra = "VIAJANTE"
 
 [editable path="HUB"]
