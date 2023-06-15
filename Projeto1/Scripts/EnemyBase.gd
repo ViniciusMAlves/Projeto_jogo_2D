@@ -3,6 +3,9 @@ class_name enemyBase
 
 @export var speed = 64.0
 @export var health = 1
+@export var boss = false
+
+
 var move_direction = -1
 var hitted = false
 var delay = 0.1
@@ -59,6 +62,8 @@ func _set_animation():
 		anim = "Idle"
 	elif velocity.x != 0:
 		anim = "run"
+		if boss and health <= 3:
+			anim = "AngryRun"
 	
 	if  hitted:
 		anim = "hit"

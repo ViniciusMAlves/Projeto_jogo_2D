@@ -2,9 +2,13 @@ extends enemyBase
 
 signal BossDead
 
+var life_size = 7
+
 func _ready():
 	set_physics_process(false)
 	delay = 0.7
+	$lifes.set_size(Vector2(life_size * health,0))
+	$lifes.position.x = -1*((life_size * health)/2)
 
 func _process(delta):
 	apply_gravity(delta)
@@ -22,11 +26,14 @@ func _set_boss_animation():
 		anim = "Idle"
 	elif velocity.x != 0:
 		anim = "run"
-		if health < 3:
+		if health <= 3:
+			anim = "AngryRun"
 			speed = 100.0
 	
 	if  hitted:
 		anim = "hit"
+		$lifes.set_size(Vector2(life_size * health,0))
+		$lifes.position.x = -1*((life_size * health)/2)
 		
 	if health < 1:
 		anim = "die"

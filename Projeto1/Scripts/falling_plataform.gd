@@ -38,3 +38,4 @@ func _on_timer_timeout():
 	await  get_tree().physics_frame
 	collision_layer = temp
 	is_triggered = false
+	anim.play("on")

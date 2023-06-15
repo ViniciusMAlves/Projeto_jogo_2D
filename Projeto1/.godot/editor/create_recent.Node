@@ -1,9 +1,10 @@
+TextureRect
+Control
 Node2D
 Button
 TextureButton
 Label
 VBoxContainer
-TextureRect
 AudioStreamPlayer2D
 AudioStreamPlayer3D
 CollisionShape2D
@@ -22,4 +23,3 @@ VisibleOnScreenNotifier2D
 Marker2D
 RigidBody2D
 HBoxContainer
-Control

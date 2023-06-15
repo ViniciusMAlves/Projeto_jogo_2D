@@ -12,7 +12,7 @@ collision_layer = 16
 texture_filter = 1
 texture = ExtResource("1_klx3a")
 region_enabled = true
-region_rect = Rect2(192, 0, 48, 16)
+region_rect = Rect2(191.951, 128.052, 48.2416, 15.9454)
 
 [node name="collision" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_l8qwa")

@@ -14,7 +14,7 @@ safe_margin = 0.001
 texture_filter = 1
 texture = ExtResource("1_npel0")
 region_enabled = true
-region_rect = Rect2(192, 16, 16, 16)
+region_rect = Rect2(192.073, 80.0269, 15.9505, 16.0805)
 
 [node name="collision" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_rnrjf")
