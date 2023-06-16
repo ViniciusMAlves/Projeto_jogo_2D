@@ -681,7 +681,7 @@ offset_bottom = 6.0
 [node name="Transition_out" parent="." instance=ExtResource("19_bckty")]
 
 [node name="Boss" parent="." instance=ExtResource("14_yt4tp")]
-position = Vector2(492, -221)
+position = Vector2(478, -222)
 health = 10
 boss = true
 
