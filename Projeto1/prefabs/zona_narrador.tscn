@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1k2esajw4j12"]
+
+[ext_resource type="Script" path="res://Scripts/ZonaNarrador.gd" id="1_grfrg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d5y0y"]
+size = Vector2(20, 265)
+
+[node name="ZonaNarrador" type="Area2D"]
+script = ExtResource("1_grfrg")
+
+[node name="collision" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_d5y0y")
+
+[node name="narrador" type="AudioStreamPlayer2D" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
