@@ -59,3 +59,7 @@ e com isso quando perder suas 3 vidas ele voltará ao último ponto de salvament
 # Gráfico de Ritmo 
 
 Por se tratar de um jogo voltado para educação infantil e de treinamento cognitivo, todas as fases irão trabalhar com a mecânica ensinada e passada para o jogador nas primeiras fases.
+
+# Demo
+
+É possivel baixar uma demo pelo link: https://drive.google.com/drive/folders/1chIY-D4KKlLzNN7CCfoIs2ngveCFntnK?usp=sharing
