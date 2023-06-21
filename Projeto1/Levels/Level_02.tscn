@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://cy2eakv2gw3h6"]
+[gd_scene load_steps=33 format=3 uid="uid://cy2eakv2gw3h6"]
 
 [ext_resource type="Script" path="res://Scripts/Reset_Level.gd" id="1_mj1jk"]
 [ext_resource type="PackedScene" uid="uid://dvgr06gu4cakb" path="res://prefabs/water.tscn" id="2_qssb0"]
@@ -20,6 +20,15 @@
 [ext_resource type="PackedScene" uid="uid://cwpyeqyau6y6h" path="res://Itens/coin_rlg.tscn" id="18_e0rgm"]
 [ext_resource type="PackedScene" uid="uid://b4cb84n7mpaij" path="res://prefabs/hub.tscn" id="18_i7a0b"]
 [ext_resource type="PackedScene" uid="uid://c352wshvjl5bd" path="res://prefabs/trampoline.tscn" id="19_nhyr3"]
+[ext_resource type="PackedScene" uid="uid://b1v3tiv0jdkrx" path="res://Itens/silaba_mis.tscn" id="21_tsqfc"]
+[ext_resource type="PackedScene" uid="uid://gi6vl7cky1mm" path="res://Itens/silaba_te.tscn" id="22_jgoaf"]
+[ext_resource type="PackedScene" uid="uid://cafygmmwaygft" path="res://Itens/silaba_ri.tscn" id="23_s3ec8"]
+[ext_resource type="PackedScene" uid="uid://bx7db7j5nxd7i" path="res://Itens/silaba_o.tscn" id="24_bm1t2"]
+[ext_resource type="PackedScene" uid="uid://b3rf1mnitj04i" path="res://Itens/silaba_so.tscn" id="25_ppeby"]
+[ext_resource type="PackedScene" uid="uid://d1k2esajw4j12" path="res://prefabs/zona_narrador.tscn" id="26_siedi"]
+[ext_resource type="AudioStream" uid="uid://ch2f13h1q14iq" path="res://Sounds/Avisos/aviso_mush.ogg" id="27_rhnkg"]
+[ext_resource type="PackedScene" uid="uid://c0ca4xamsplo7" path="res://prefabs/goal.tscn" id="28_gecmg"]
+[ext_resource type="AudioStream" uid="uid://bwcwcxa50np5f" path="res://Music/Adventure pack 1 ogg/exploration.ogg" id="29_velhq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p7eis"]
 resource_name = "Stone"
@@ -735,6 +744,30 @@ position = Vector2(5182, -55)
 
 [node name="Silabas" type="Node2D" parent="."]
 
+[node name="Silaba_MIS" parent="Silabas" instance=ExtResource("21_tsqfc")]
+position = Vector2(761, -93)
+Silabas = "MIS"
+
+[node name="Silaba_TE" parent="Silabas" instance=ExtResource("22_jgoaf")]
+position = Vector2(2175, -142)
+Silabas = "TE"
+Silabas_ant = "MIS"
+
+[node name="Silaba_RI" parent="Silabas" instance=ExtResource("23_s3ec8")]
+position = Vector2(3556, -208)
+Silabas = "RI"
+Silabas_ant = "MISTE"
+
+[node name="Silaba_O" parent="Silabas" instance=ExtResource("24_bm1t2")]
+position = Vector2(5015, -93)
+Silabas = "O"
+Silabas_ant = "MISTERI"
+
+[node name="Silaba_SO" parent="Silabas" instance=ExtResource("25_ppeby")]
+position = Vector2(5793, 9)
+Silabas = "SO"
+Silabas_ant = "MISTERIO"
+
 [node name="Player" parent="." instance=ExtResource("7_ph6t6")]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
@@ -951,5 +984,21 @@ cois = 8
 
 [node name="Trampoline" parent="." instance=ExtResource("19_nhyr3")]
 position = Vector2(3970, 17)
+
+[node name="ZonaNarrador" parent="." instance=ExtResource("26_siedi")]
+position = Vector2(179, -21)
+stream = ExtResource("27_rhnkg")
+
+[node name="Goal" parent="." instance=ExtResource("28_gecmg")]
+position = Vector2(6071, 16)
+path = "res://Levels/Final.tscn"
+palavra = "MISTERIOSO"
+
+[node name="music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("29_velhq")
+volume_db = -10.0
+autoplay = true
+max_distance = 2e+06
+attenuation = 0.901248
 
 [editable path="HUB"]

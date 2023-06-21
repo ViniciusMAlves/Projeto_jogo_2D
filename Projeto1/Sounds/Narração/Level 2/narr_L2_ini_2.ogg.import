@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://ox7s3mx67x8e"
+path="res://.godot/imported/narr_L2_ini_2.ogg-403cd1fe120faaef97bb12077e7918ee.oggvorbisstr"
+
+[deps]
+
+source_file="res://Sounds/Narração/Level 2/narr_L2_ini_2.ogg"
+dest_files=["res://.godot/imported/narr_L2_ini_2.ogg-403cd1fe120faaef97bb12077e7918ee.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

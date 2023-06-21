@@ -1,18 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://7n108kuf7ct"]
+[gd_scene load_steps=4 format=3 uid="uid://cxrakcrjpni5e"]
 
-[ext_resource type="Script" path="res://Scripts/Narrador_Pimeiro.gd" id="1_5c2eg"]
-[ext_resource type="FontFile" uid="uid://cqdrreoeeopoj" path="res://Fonts/Minecraft.ttf" id="2_4quf0"]
-[ext_resource type="AudioStream" uid="uid://bnn38oys87x7j" path="res://Sounds/Narração/Level 1/Narracao_1-2.ogg" id="3_frn2j"]
+[ext_resource type="Script" path="res://Scripts/Narrador_Pimeiro.gd" id="1_vecgc"]
+[ext_resource type="FontFile" uid="uid://cqdrreoeeopoj" path="res://Fonts/Minecraft.ttf" id="2_8vfve"]
+[ext_resource type="AudioStream" uid="uid://ox7s3mx67x8e" path="res://Sounds/Narração/Level 2/narr_L2_ini_2.ogg" id="3_koh8f"]
 
-[node name="Narrador_L1_Fim" type="Control"]
+[node name="Narrador_L2_Ini" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_5c2eg")
-tela = "res://Levels/Narrador_L2_Ini.tscn"
+script = ExtResource("1_vecgc")
+tela = "res://Levels/Level_02.tscn"
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -33,19 +33,18 @@ offset_left = 10.0
 offset_right = -14.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("2_4quf0")
+theme_override_fonts/font = ExtResource("2_8vfve")
 theme_override_font_sizes/font_size = 8
-text = "Viajante?
-Sim, um Viajante!
-Ele era um Viajante que adorava passear por florestas em busca de uma aventura, e essa é a história de uma de suas aventuras 
-"
+text = "Quanto mais perto ele chegava do Rei Porco, criaturas apareciam para tentar impedi-lo, mas nosso viajante não tinha medo e seguia em frente. 
+
+Mas o que era esse tesouro? "
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 1
 clip_text = true
 
 [node name="narracao" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_frn2j")
+stream = ExtResource("3_koh8f")
 autoplay = true
 
 [connection signal="finished" from="narracao" to="." method="_on_audio_stream_player_2d_finished"]

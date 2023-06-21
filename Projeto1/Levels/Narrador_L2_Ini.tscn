@@ -1,0 +1,48 @@
+[gd_scene load_steps=4 format=3 uid="uid://27qgmvwpm6ej"]
+
+[ext_resource type="Script" path="res://Scripts/Narrador_Pimeiro.gd" id="1_t4ddm"]
+[ext_resource type="FontFile" uid="uid://cqdrreoeeopoj" path="res://Fonts/Minecraft.ttf" id="2_de2fp"]
+[ext_resource type="AudioStream" uid="uid://p6kmqjo7x878" path="res://Sounds/Narração/Level 2/narr_L2_ini.ogg" id="3_i716o"]
+
+[node name="Narrador_L2_Ini" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_t4ddm")
+tela = "res://Levels/Narrador_L2_Ini_2.tscn"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.560784)
+
+[node name="Info" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_right = -14.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_de2fp")
+theme_override_font_sizes/font_size = 8
+text = "Em um belo dia de sol, o nosso viajante estava em uma de suas aventuras por uma floresta à procura de tesouro que estava sendo guardado pelo     Porco Rei, que era o guardião da floresta, a lenda dizia que esse tesouro      guardava um item extremamente raro e precioso."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 1
+clip_text = true
+
+[node name="narracao" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_i716o")
+autoplay = true
+
+[connection signal="finished" from="narracao" to="." method="_on_audio_stream_player_2d_finished"]

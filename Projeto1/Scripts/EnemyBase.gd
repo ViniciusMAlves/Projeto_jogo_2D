@@ -34,7 +34,6 @@ func apply_gravity(delta):
 
 
 func _on_anima_animation_finished(anim_name):
-	print(anim_name)
 	if anim_name == "Idle":
 		$ray_wall.scale.x *= -1
 		move_direction *= -1
