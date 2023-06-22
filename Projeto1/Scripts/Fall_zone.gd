@@ -16,10 +16,11 @@ func _process(delta):
 
 func _on_body_entered(body):
 	if body.name == "Player":
-		Global.player_life -= 1
-		Global.player_health = 3
-		if Global.player_life < 1:
+		print(Global.player_life)
+		if Global.player_life < 0:
 			get_tree().change_scene_to_file("res://prefabs/GameOver.tscn")
 		else :
+			Global.player_life -= 1
+			Global.player_health = 3
 			emit_signal("reset_life")
 			body.position = Global.checkpoint_pos

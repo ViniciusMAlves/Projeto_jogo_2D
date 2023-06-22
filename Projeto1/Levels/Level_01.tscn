@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://br1uutack0687"]
+[gd_scene load_steps=27 format=3 uid="uid://br1uutack0687"]
 
 [ext_resource type="PackedScene" uid="uid://ciqdx7x3gsy1d" path="res://Scenes/Player.tscn" id="1"]
 [ext_resource type="Script" path="res://Scripts/Reset_Level.gd" id="1_2ar8s"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dvgr06gu4cakb" path="res://prefabs/water.tscn" id="3_ye0yi"]
 [ext_resource type="Texture2D" uid="uid://cx81tpiqvwj01" path="res://Assets/Scenes/Seasonal Tilesets/1 - Grassland/Background parts/3 - Cloud_cover_1.png" id="4"]
 [ext_resource type="Shader" path="res://Levels/cloud.gdshader" id="4_jmjxv"]
+[ext_resource type="PackedScene" uid="uid://dqv84cj4hr24p" path="res://prefabs/FallZone_Water.tscn" id="4_uymgk"]
 [ext_resource type="Texture2D" uid="uid://djojdfr6cs04a" path="res://Assets/Scenes/Seasonal Tilesets/1 - Grassland/Background parts/2 - Hills.png" id="5"]
 [ext_resource type="PackedScene" uid="uid://pqq65me2pt8o" path="res://prefabs/checkpoint.tscn" id="5_ivhkc"]
 [ext_resource type="Texture2D" uid="uid://draq1firahhus" path="res://Assets/Scenes/Seasonal Tilesets/1 - Grassland/Background parts/4 - Cloud_cover_2.png" id="6"]
@@ -631,6 +632,10 @@ position = Vector2(2793, -3)
 
 [node name="Water14" parent="water" instance=ExtResource("3_ye0yi")]
 position = Vector2(2821, -3)
+
+[node name="fall_zone" parent="water" instance=ExtResource("4_uymgk")]
+position = Vector2(2618, 72)
+scale = Vector2(3.88, 4.16)
 
 [node name="TileMap" type="TileMap" parent="."]
 texture_filter = 1

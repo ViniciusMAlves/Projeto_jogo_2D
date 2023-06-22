@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dqv84cj4hr24p"]
+
+[ext_resource type="Script" path="res://Scripts/Fall_zone.gd" id="1_f1816"]
+[ext_resource type="Texture2D" uid="uid://bpk3v00ns62hx" path="res://Assets/Scenes/Seasonal Tilesets/5 - Misc. universal tiles/Water.png" id="2_ridem"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ojf5s"]
+size = Vector2(113.5, 20)
+
+[node name="fall_zone" type="Area2D"]
+scale = Vector2(2, 2)
+script = ExtResource("1_f1816")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ojf5s")
+
+[node name="Water" type="Sprite2D" parent="."]
+position = Vector2(0, 0.5)
+scale = Vector2(3.54, 1.38)
+texture = ExtResource("2_ridem")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

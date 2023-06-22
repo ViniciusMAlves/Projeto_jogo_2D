@@ -1,7 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://dvgr06gu4cakb"]
+[gd_scene load_steps=6 format=3 uid="uid://dvgr06gu4cakb"]
 
 [ext_resource type="Texture2D" uid="uid://couqw54d8y2lx" path="res://Assets/Scenes/Seasonal Tilesets/5 - Misc. universal tiles/Water_frames (16 x 32).png" id="1_qbjii"]
-[ext_resource type="PackedScene" uid="uid://dl552moo5pfy6" path="res://prefabs/FallZone.tscn" id="2_vl6e2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4dmnu"]
 size = Vector2(14, 12)
@@ -111,7 +110,3 @@ speed_scale = -0.35
 libraries = {
 "": SubResource("AnimationLibrary_mbgg0")
 }
-
-[node name="fall_zone" parent="." instance=ExtResource("2_vl6e2")]
-position = Vector2(-13, 27)
-scale = Vector2(0.280001, 1.08)

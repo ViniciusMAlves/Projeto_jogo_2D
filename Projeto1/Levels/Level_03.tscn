@@ -1,10 +1,10 @@
-[gd_scene load_steps=24 format=3 uid="uid://bonent5y6ymqm"]
+[gd_scene load_steps=25 format=3 uid="uid://bonent5y6ymqm"]
 
 [ext_resource type="Script" path="res://Scripts/Reset_Level.gd" id="1_sua2m"]
 [ext_resource type="PackedScene" uid="uid://bpkhvoa8ml3m6" path="res://prefabs/transition_in.tscn" id="2_hjirw"]
 [ext_resource type="PackedScene" uid="uid://dvgr06gu4cakb" path="res://prefabs/water.tscn" id="3_l38qr"]
 [ext_resource type="Texture2D" uid="uid://34l4u1ayi3pj" path="res://Assets/Scenes/Terrain/Terrain (16x16).png" id="4_74lvm"]
-[ext_resource type="Texture2D" uid="uid://bpk3v00ns62hx" path="res://Assets/Scenes/Seasonal Tilesets/5 - Misc. universal tiles/Water.png" id="4_tmkii"]
+[ext_resource type="PackedScene" uid="uid://dqv84cj4hr24p" path="res://prefabs/FallZone_Water.tscn" id="4_qghuw"]
 [ext_resource type="PackedScene" uid="uid://ciqdx7x3gsy1d" path="res://Scenes/Player.tscn" id="10_8p8ld"]
 [ext_resource type="Texture2D" uid="uid://dpm2gg6xqield" path="res://Assets/Scenes/Seasonal Tilesets/1 - Grassland/Background parts/5 - Sky_color.png" id="11_edvmn"]
 [ext_resource type="Shader" path="res://Levels/cloud.gdshader" id="12_cf3fc"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://7wv2f1eafu42" path="res://Assets/Scenes/Seasonal Tilesets/1 - Grassland/Background parts/1 - Foreground_scenery.png" id="16_fqwmp"]
 [ext_resource type="PackedScene" uid="uid://b4cb84n7mpaij" path="res://prefabs/hub.tscn" id="18_61j5t"]
 [ext_resource type="AudioStream" uid="uid://bwcwcxa50np5f" path="res://Music/Adventure pack 1 ogg/exploration.ogg" id="19_2146k"]
+[ext_resource type="PackedScene" uid="uid://pqq65me2pt8o" path="res://prefabs/checkpoint.tscn" id="21_dhjx8"]
 [ext_resource type="PackedScene" uid="uid://c0ca4xamsplo7" path="res://prefabs/goal.tscn" id="22_a8i0s"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p7eis"]
@@ -618,10 +619,9 @@ position = Vector2(3485, -123)
 [node name="Water10" parent="water" instance=ExtResource("3_l38qr")]
 position = Vector2(3513, -123)
 
-[node name="Water11" type="Sprite2D" parent="water"]
-position = Vector2(3360, -23)
-scale = Vector2(9.72181, 10.6721)
-texture = ExtResource("4_tmkii")
+[node name="fall_zone" parent="water" instance=ExtResource("4_qghuw")]
+position = Vector2(3357, -21)
+scale = Vector2(2.84, 6.92)
 
 [node name="TileMap" type="TileMap" parent="."]
 texture_filter = 1
@@ -789,5 +789,14 @@ attenuation = 0.901248
 
 [node name="Goal" parent="." instance=ExtResource("22_a8i0s")]
 position = Vector2(4222, 32)
+
+[node name="checkpoint" parent="." instance=ExtResource("21_dhjx8")]
+position = Vector2(1210, 48)
+
+[node name="checkpoint2" parent="." instance=ExtResource("21_dhjx8")]
+position = Vector2(2069, -79)
+
+[node name="checkpoint3" parent="." instance=ExtResource("21_dhjx8")]
+position = Vector2(3185, -175)
 
 [editable path="HUB"]

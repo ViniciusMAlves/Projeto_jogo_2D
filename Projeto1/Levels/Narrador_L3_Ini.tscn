@@ -1,0 +1,48 @@
+[gd_scene load_steps=4 format=3 uid="uid://berxsrd1ecdxj"]
+
+[ext_resource type="Script" path="res://Scripts/Narrador_Pimeiro.gd" id="1_qobxp"]
+[ext_resource type="FontFile" uid="uid://cqdrreoeeopoj" path="res://Fonts/Minecraft.ttf" id="2_y2650"]
+[ext_resource type="AudioStream" uid="uid://c384y73mape2y" path="res://Sounds/Narração/Level 3/narr_L3_ini.ogg" id="3_smk8c"]
+
+[node name="Narrador_L3_Ini" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qobxp")
+tela = "res://Levels/Level_03.tscn"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.560784)
+
+[node name="Info" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_right = -14.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_y2650")
+theme_override_font_sizes/font_size = 8
+text = "A cada passo o terreno ficava mais perigoso, mas o nosso herói não ..."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 1
+clip_text = true
+
+[node name="narracao" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_smk8c")
+autoplay = true
+
+[connection signal="finished" from="narracao" to="." method="_on_audio_stream_player_2d_finished"]

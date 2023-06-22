@@ -670,12 +670,6 @@ centered = false
 
 [node name="HUB" parent="." instance=ExtResource("17_eyogy")]
 
-[node name="Time" parent="HUB/HBoxContainer/Holder2" index="0"]
-offset_left = -2.0
-offset_top = 10.0
-offset_right = -2.0
-offset_bottom = 6.0
-
 [node name="Transition_in" parent="." instance=ExtResource("18_u7tjp")]
 
 [node name="Transition_out" parent="." instance=ExtResource("19_bckty")]
