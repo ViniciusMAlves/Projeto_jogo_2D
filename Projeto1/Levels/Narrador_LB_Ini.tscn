@@ -1,18 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://b00lssd5kd6w7"]
+[gd_scene load_steps=4 format=3 uid="uid://bm53wl0uh8f5l"]
 
-[ext_resource type="Script" path="res://Scripts/Narrador_Pimeiro.gd" id="1_27k70"]
-[ext_resource type="FontFile" uid="uid://cqdrreoeeopoj" path="res://Fonts/Minecraft.ttf" id="2_alxqi"]
-[ext_resource type="AudioStream" uid="uid://bwmjcypblhd8f" path="res://Sounds/Narração/Level 3/narr_L3_Fim.ogg" id="3_5t8ts"]
+[ext_resource type="Script" path="res://Scripts/Narrador_Pimeiro.gd" id="1_kpgcc"]
+[ext_resource type="FontFile" uid="uid://cqdrreoeeopoj" path="res://Fonts/Minecraft.ttf" id="2_whqfn"]
+[ext_resource type="AudioStream" uid="uid://cx02mkj2lgke6" path="res://Sounds/Narração/Level Boss/narr_LB_Ini.ogg" id="3_afcv5"]
 
-[node name="Narrador_L3_Ini" type="Control"]
+[node name="Narrador_LB_Ini" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_27k70")
-tela = "res://Levels/Narrador_LB_Ini.tscn"
+script = ExtResource("1_kpgcc")
+tela = "res://Levels/Level_Boss.tscn"
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -33,17 +33,16 @@ offset_left = 10.0
 offset_right = -14.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("2_alxqi")
+theme_override_fonts/font = ExtResource("2_whqfn")
 theme_override_font_sizes/font_size = 8
-text = "Isso! 
-Ele não desistiu, e seguiu em frente até chegar em seu objetivo. "
+text = "Até que finalmente encontrou o tesouro, que estava bem à sua frente. Só precisava seguir em frente mais um pouco para pegá-lo."
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 1
 clip_text = true
 
 [node name="narracao" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_5t8ts")
+stream = ExtResource("3_afcv5")
 autoplay = true
 
 [connection signal="finished" from="narracao" to="." method="_on_audio_stream_player_2d_finished"]

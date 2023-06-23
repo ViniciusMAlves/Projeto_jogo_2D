@@ -157,7 +157,7 @@ func MoveBox(delta):
 		
 func GameOver():
 	print(Global.player_life)
-	if Global.player_health < 0:
+	if Global.player_health < 1:
 		Global.is_dead = true
 		Global.player_life -= 1
 		Global.player_health = 3
@@ -165,6 +165,6 @@ func GameOver():
 		
 		position = Global.checkpoint_pos
 		
-	if  Global.player_life < 0:
+	if  Global.player_life < 1:
 		get_tree().change_scene_to_file("res://prefabs/GameOver.tscn")
 	

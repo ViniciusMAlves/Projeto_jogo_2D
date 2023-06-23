@@ -1,8 +1,7 @@
-[gd_scene load_steps=22 format=3 uid="uid://bl66dx2c7p0lu"]
+[gd_scene load_steps=24 format=3 uid="uid://bl66dx2c7p0lu"]
 
 [ext_resource type="Script" path="res://Scripts/Reset_Level.gd" id="1_0fscy"]
 [ext_resource type="Texture2D" uid="uid://34l4u1ayi3pj" path="res://Assets/Scenes/Terrain/Terrain (16x16).png" id="2_18m2t"]
-[ext_resource type="PackedScene" uid="uid://c0ca4xamsplo7" path="res://prefabs/goal.tscn" id="2_j20ls"]
 [ext_resource type="PackedScene" uid="uid://ciqdx7x3gsy1d" path="res://Scenes/Player.tscn" id="6_477w5"]
 [ext_resource type="Texture2D" uid="uid://dpm2gg6xqield" path="res://Assets/Scenes/Seasonal Tilesets/1 - Grassland/Background parts/5 - Sky_color.png" id="7_eeyam"]
 [ext_resource type="Shader" path="res://Levels/cloud.gdshader" id="8_8mpnu"]
@@ -14,10 +13,13 @@
 [ext_resource type="PackedScene" uid="uid://c4ki2v3jnls3l" path="res://Scenes/Boss.tscn" id="14_yt4tp"]
 [ext_resource type="PackedScene" uid="uid://c5gcxqkja724m" path="res://prefabs/trigger.tscn" id="15_xsbwv"]
 [ext_resource type="PackedScene" uid="uid://bkymtkwdndgt5" path="res://prefabs/ArenaDorr.tscn" id="16_p65oy"]
+[ext_resource type="AudioStream" uid="uid://c5d1pcgr0skid" path="res://Sounds/Avisos/aviso_boss.ogg" id="17_8u35n"]
 [ext_resource type="PackedScene" uid="uid://b4cb84n7mpaij" path="res://prefabs/hub.tscn" id="17_eyogy"]
 [ext_resource type="PackedScene" uid="uid://ct7ssa6h320q4" path="res://prefabs/falling_plataform.tscn" id="18_6ks30"]
 [ext_resource type="PackedScene" uid="uid://bpkhvoa8ml3m6" path="res://prefabs/transition_in.tscn" id="18_u7tjp"]
+[ext_resource type="PackedScene" uid="uid://dhsl2mv4udj8e" path="res://prefabs/chest.tscn" id="19_b1q6b"]
 [ext_resource type="PackedScene" uid="uid://bs6uf517n7o0p" path="res://prefabs/transition_out.tscn" id="19_bckty"]
+[ext_resource type="AudioStream" uid="uid://dpaceykht2egj" path="res://Music/Adventure pack 1 ogg/dark-happy-world.ogg" id="19_luckh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p7eis"]
 resource_name = "Stone"
@@ -582,10 +584,6 @@ shader_parameter/speed = 0.02
 script = ExtResource("1_0fscy")
 path = "res://Levels/Level_02.tscn"
 
-[node name="Goal" parent="." instance=ExtResource("2_j20ls")]
-position = Vector2(897, 16)
-path = "res://Levels/Final.tscn"
-
 [node name="ArenaDorr" parent="." instance=ExtResource("16_p65oy")]
 position = Vector2(697, 82)
 
@@ -601,13 +599,19 @@ layer_0/tile_data = PackedInt32Array(-1245185, 65536, 2, -1310720, 65536, 2, -13
 [node name="plataform" type="Node2D" parent="."]
 
 [node name="BossPlataform" parent="plataform" instance=ExtResource("13_r0nn3")]
-position = Vector2(200, 40)
+position = Vector2(51, 37)
 
-[node name="BossPlataform2" parent="plataform" instance=ExtResource("13_r0nn3")]
-position = Vector2(388, 41)
+[node name="BossPlataform4" parent="plataform" instance=ExtResource("13_r0nn3")]
+position = Vector2(127, 8)
+
+[node name="BossPlataform5" parent="plataform" instance=ExtResource("13_r0nn3")]
+position = Vector2(283, 8)
+
+[node name="BossPlataform6" parent="plataform" instance=ExtResource("13_r0nn3")]
+position = Vector2(453, 6)
 
 [node name="BossPlataform3" parent="plataform" instance=ExtResource("13_r0nn3")]
-position = Vector2(576, 40)
+position = Vector2(617, 42)
 
 [node name="Player" parent="." instance=ExtResource("6_477w5")]
 position = Vector2(127, 21)
@@ -675,26 +679,34 @@ centered = false
 [node name="Transition_out" parent="." instance=ExtResource("19_bckty")]
 
 [node name="Boss" parent="." instance=ExtResource("14_yt4tp")]
-position = Vector2(478, -222)
+position = Vector2(61.0001, -216)
 health = 10
 boss = true
 
 [node name="Trigger" parent="." instance=ExtResource("15_xsbwv")]
-position = Vector2(385, 69)
+position = Vector2(637, 71)
+aviso = ExtResource("17_8u35n")
 
 [node name="FallingPlataform2" type="Node2D" parent="."]
 
 [node name="FallingPlataform" parent="FallingPlataform2" instance=ExtResource("18_6ks30")]
-position = Vector2(254, 2)
+position = Vector2(206, -15)
 
 [node name="FallingPlataform2" parent="FallingPlataform2" instance=ExtResource("18_6ks30")]
-position = Vector2(325, 2)
+position = Vector2(362, -14)
 
 [node name="FallingPlataform3" parent="FallingPlataform2" instance=ExtResource("18_6ks30")]
-position = Vector2(442, 2)
+position = Vector2(548, -8)
 
-[node name="FallingPlataform4" parent="FallingPlataform2" instance=ExtResource("18_6ks30")]
-position = Vector2(523, 2)
+[node name="music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("19_luckh")
+volume_db = -10.0
+autoplay = true
+max_distance = 2e+06
+attenuation = 0.901248
+
+[node name="Chest" parent="." instance=ExtResource("19_b1q6b")]
+position = Vector2(834, 1)
 
 [connection signal="DoorClosed" from="ArenaDorr" to="Boss" method="_on_arena_dorr_door_closed"]
 [connection signal="BossDead" from="Boss" to="ArenaDorr" method="_on_boss_boss_dead"]

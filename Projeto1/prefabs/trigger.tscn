@@ -11,3 +11,8 @@ script = ExtResource("1_8c2ft")
 [node name="collision" type="CollisionShape2D" parent="."]
 position = Vector2(0, -41.5)
 shape = SubResource("RectangleShape2D_eg763")
+
+[node name="aviso" type="AudioStreamPlayer2D" parent="."]
+volume_db = 2.811
+
+[connection signal="finished" from="aviso" to="." method="_on_aviso_finished"]

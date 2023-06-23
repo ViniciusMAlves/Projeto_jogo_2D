@@ -1,6 +1,6 @@
+AudioStreamPlayer2D
 Area2D
 AnimationPlayer
-AudioStreamPlayer2D
 CollisionShape2D
 ColorRect
 TextureRect

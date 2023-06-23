@@ -17,7 +17,7 @@ func _process(delta):
 func _on_body_entered(body):
 	if body.name == "Player":
 		print(Global.player_life)
-		if Global.player_life < 0:
+		if Global.player_life < 1:
 			get_tree().change_scene_to_file("res://prefabs/GameOver.tscn")
 		else :
 			Global.player_life -= 1
