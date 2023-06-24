@@ -151,7 +151,7 @@ _data = {
 
 [node name="Silaba_O" type="Area2D"]
 script = ExtResource("1_g2s44")
-Silabas = "BA"
+Silabas = "O"
 
 [node name="texture" type="Sprite2D" parent="."]
 texture_filter = 1

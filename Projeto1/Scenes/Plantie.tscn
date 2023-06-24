@@ -267,7 +267,6 @@ size = Vector2(28, 6)
 
 [node name="plantie" type="CharacterBody2D"]
 collision_layer = 2
-collision_mask = 9
 script = ExtResource("1_fj0le")
 
 [node name="texture" type="Sprite2D" parent="."]

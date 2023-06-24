@@ -21,5 +21,7 @@ func _on_body_entered(body):
 		if Global.silabas == palavra:
 			$confete.emitting = true
 			changer.change_scene(path)
-			Global.checkpoint_pos = Vector2(128, 16)
+			Global.checkpoint_pos = Vector2(0, 0)
 			$victoryFx.play()
+		else:
+			$Aviso.play()

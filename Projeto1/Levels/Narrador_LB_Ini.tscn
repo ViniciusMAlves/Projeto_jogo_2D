@@ -35,7 +35,8 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_whqfn")
 theme_override_font_sizes/font_size = 8
-text = "Até que finalmente encontrou o tesouro, que estava bem à sua frente. Só precisava seguir em frente mais um pouco para pegá-lo."
+text = "Até que finalmente encontrou o tesouro, que estava bem à sua frente.
+ Só precisava seguir em frente mais um pouco para pegá-lo."
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 1

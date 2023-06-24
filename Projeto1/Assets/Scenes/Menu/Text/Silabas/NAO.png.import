@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://kvhmeou5v50u"
-path="res://.godot/imported/Treasure_Chest (32 x 16).png-b314480afa71027fe8839ffc212d6e97.ctex"
+uid="uid://bn6bsxfcifn4a"
+path="res://.godot/imported/NAO.png-3d91453bb05f6cade52aab1c8c1c5634.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://prefabs/Treasure_Chest (32 x 16).png"
-dest_files=["res://.godot/imported/Treasure_Chest (32 x 16).png-b314480afa71027fe8839ffc212d6e97.ctex"]
+source_file="res://Assets/Scenes/Menu/Text/Silabas/NAO.png"
+dest_files=["res://.godot/imported/NAO.png-3d91453bb05f6cade52aab1c8c1c5634.ctex"]
 
 [params]
 

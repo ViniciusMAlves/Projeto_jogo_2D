@@ -1,11 +1,11 @@
 AudioStreamPlayer2D
+Node2D
 Area2D
 AnimationPlayer
 CollisionShape2D
 ColorRect
 TextureRect
 Control
-Node2D
 Button
 TextureButton
 Label

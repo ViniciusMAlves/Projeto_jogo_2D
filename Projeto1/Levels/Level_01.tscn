@@ -660,21 +660,17 @@ position = Vector2(2313, -143)
 
 [node name="Silaba_VI" parent="Silabas" instance=ExtResource("15_xtjro")]
 position = Vector2(208, -46)
-Silabas = "VI"
 
 [node name="Silaba_A" parent="Silabas" instance=ExtResource("15_y78xf")]
 position = Vector2(1512, -4)
-Silabas = "A"
 Silabas_ant = "VI"
 
 [node name="Silaba_JAN" parent="Silabas" instance=ExtResource("20_p42ot")]
 position = Vector2(2685, -165)
-Silabas = "JAN"
 Silabas_ant = "VIA"
 
 [node name="Silaba_TE" parent="Silabas" instance=ExtResource("22_rilwm")]
 position = Vector2(3508, -143)
-Silabas = "TE"
 Silabas_ant = "VIAJAN"
 
 [node name="Player" parent="." instance=ExtResource("1")]

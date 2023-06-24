@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://dhsl2mv4udj8e"]
+[gd_scene load_steps=9 format=3 uid="uid://dhsl2mv4udj8e"]
 
 [ext_resource type="Script" path="res://Scripts/chest.gd" id="1_1utix"]
 [ext_resource type="Texture2D" uid="uid://dvh0skej0y7yu" path="res://Assets/Mini FX, Items & UI/Common Pick-ups/Treasure_Chest (32 x 16).png" id="1_tafhk"]
+[ext_resource type="PackedScene" uid="uid://cauqv172q8715" path="res://Itens/star.tscn" id="2_8jqnw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_20oth"]
 size = Vector2(32, 32)
@@ -149,6 +150,7 @@ _data = {
 [node name="Chest" type="Area2D"]
 collision_layer = 4
 script = ExtResource("1_1utix")
+premio_instance = Array[PackedScene]([ExtResource("2_8jqnw")])
 
 [node name="texture" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -161,10 +163,9 @@ region_rect = Rect2(0, 0, 28, 24)
 shape = SubResource("RectangleShape2D_20oth")
 
 [node name="spawnPoint" type="Marker2D" parent="."]
-position = Vector2(0, -16)
+position = Vector2(0, -24)
 
 [node name="sounds" type="AudioStreamPlayer2D" parent="."]
-volume_db = -10.0
 
 [node name="anima" type="AnimationPlayer" parent="."]
 autoplay = "close"

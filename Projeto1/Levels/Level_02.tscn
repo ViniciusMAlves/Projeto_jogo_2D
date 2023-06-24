@@ -755,26 +755,21 @@ position = Vector2(4687, -95)
 
 [node name="Silaba_MIS" parent="Silabas" instance=ExtResource("21_tsqfc")]
 position = Vector2(761, -93)
-Silabas = "MIS"
 
 [node name="Silaba_TE" parent="Silabas" instance=ExtResource("22_jgoaf")]
 position = Vector2(2175, -142)
-Silabas = "TE"
 Silabas_ant = "MIS"
 
 [node name="Silaba_RI" parent="Silabas" instance=ExtResource("23_s3ec8")]
 position = Vector2(3556, -208)
-Silabas = "RI"
 Silabas_ant = "MISTE"
 
 [node name="Silaba_O" parent="Silabas" instance=ExtResource("24_bm1t2")]
 position = Vector2(5015, -93)
-Silabas = "O"
 Silabas_ant = "MISTERI"
 
 [node name="Silaba_SO" parent="Silabas" instance=ExtResource("25_ppeby")]
 position = Vector2(5793, 9)
-Silabas = "SO"
 Silabas_ant = "MISTERIO"
 
 [node name="Player" parent="." instance=ExtResource("7_ph6t6")]
