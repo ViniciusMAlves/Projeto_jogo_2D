@@ -1,11 +1,10 @@
-[gd_scene load_steps=25 format=3 uid="uid://bl66dx2c7p0lu"]
+[gd_scene load_steps=24 format=3 uid="uid://bl66dx2c7p0lu"]
 
 [ext_resource type="Script" path="res://Scripts/Reset_Level.gd" id="1_0fscy"]
 [ext_resource type="Texture2D" uid="uid://34l4u1ayi3pj" path="res://Assets/Scenes/Terrain/Terrain (16x16).png" id="2_18m2t"]
 [ext_resource type="PackedScene" uid="uid://ciqdx7x3gsy1d" path="res://Scenes/Player.tscn" id="6_477w5"]
 [ext_resource type="Texture2D" uid="uid://dpm2gg6xqield" path="res://Assets/Scenes/Seasonal Tilesets/1 - Grassland/Background parts/5 - Sky_color.png" id="7_eeyam"]
 [ext_resource type="Shader" path="res://Levels/cloud.gdshader" id="8_8mpnu"]
-[ext_resource type="Texture2D" uid="uid://cx81tpiqvwj01" path="res://Assets/Scenes/Seasonal Tilesets/1 - Grassland/Background parts/3 - Cloud_cover_1.png" id="9_7gk87"]
 [ext_resource type="Texture2D" uid="uid://draq1firahhus" path="res://Assets/Scenes/Seasonal Tilesets/1 - Grassland/Background parts/4 - Cloud_cover_2.png" id="10_fsy0o"]
 [ext_resource type="Texture2D" uid="uid://djojdfr6cs04a" path="res://Assets/Scenes/Seasonal Tilesets/1 - Grassland/Background parts/2 - Hills.png" id="11_vsiqy"]
 [ext_resource type="Texture2D" uid="uid://7wv2f1eafu42" path="res://Assets/Scenes/Seasonal Tilesets/1 - Grassland/Background parts/1 - Foreground_scenery.png" id="12_hj378"]
@@ -634,10 +633,10 @@ motion_mirroring = Vector2(576, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/cloud"]
 texture_filter = 1
+texture_repeat = 2
 material = SubResource("ShaderMaterial_vi5ep")
 position = Vector2(0, -300)
 scale = Vector2(2, 2)
-texture = ExtResource("9_7gk87")
 centered = false
 
 [node name="cloud_mountain" type="ParallaxLayer" parent="ParallaxBackground"]

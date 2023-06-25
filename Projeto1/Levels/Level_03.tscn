@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://bonent5y6ymqm"]
+[gd_scene load_steps=31 format=3 uid="uid://bonent5y6ymqm"]
 
 [ext_resource type="Script" path="res://Scripts/Reset_Level.gd" id="1_sua2m"]
 [ext_resource type="PackedScene" uid="uid://bpkhvoa8ml3m6" path="res://prefabs/transition_in.tscn" id="2_hjirw"]
@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://ciqdx7x3gsy1d" path="res://Scenes/Player.tscn" id="10_8p8ld"]
 [ext_resource type="Texture2D" uid="uid://dpm2gg6xqield" path="res://Assets/Scenes/Seasonal Tilesets/1 - Grassland/Background parts/5 - Sky_color.png" id="11_edvmn"]
 [ext_resource type="Shader" path="res://Levels/cloud.gdshader" id="12_cf3fc"]
-[ext_resource type="Texture2D" uid="uid://cx81tpiqvwj01" path="res://Assets/Scenes/Seasonal Tilesets/1 - Grassland/Background parts/3 - Cloud_cover_1.png" id="13_bxp5b"]
 [ext_resource type="PackedScene" uid="uid://d17y4tt2mwdrd" path="res://prefabs/moving_plataform.tscn" id="13_tjbc0"]
 [ext_resource type="PackedScene" uid="uid://ct7ssa6h320q4" path="res://prefabs/falling_plataform.tscn" id="14_fujoh"]
 [ext_resource type="Texture2D" uid="uid://draq1firahhus" path="res://Assets/Scenes/Seasonal Tilesets/1 - Grassland/Background parts/4 - Cloud_cover_2.png" id="14_jpg3h"]
@@ -26,6 +25,8 @@
 [ext_resource type="PackedScene" uid="uid://ca2ne5368na1r" path="res://Itens/silaba_de.tscn" id="23_mkcoh"]
 [ext_resource type="PackedScene" uid="uid://4q8bpttmjatl" path="res://Itens/silaba_sis.tscn" id="24_l6icl"]
 [ext_resource type="PackedScene" uid="uid://gi6vl7cky1mm" path="res://Itens/silaba_te.tscn" id="25_kg0ev"]
+[ext_resource type="PackedScene" uid="uid://d1k2esajw4j12" path="res://prefabs/zona_narrador.tscn" id="27_mwnlj"]
+[ext_resource type="AudioStream" uid="uid://2novdnsr830n" path="res://Sounds/Avisos/Moving_plataform.mp3" id="28_cpm5r"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p7eis"]
 resource_name = "Stone"
@@ -739,10 +740,10 @@ motion_mirroring = Vector2(576, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/cloud"]
 texture_filter = 1
+texture_repeat = 2
 material = SubResource("ShaderMaterial_vi5ep")
 position = Vector2(-100, -310)
 scale = Vector2(2, 2)
-texture = ExtResource("13_bxp5b")
 centered = false
 
 [node name="cloud_mountain" type="ParallaxLayer" parent="ParallaxBackground"]
@@ -933,5 +934,9 @@ Bullet = ExtResource("16_bb4pt")
 [node name="plantie3" parent="Plantie" instance=ExtResource("15_fvu2n")]
 position = Vector2(3892, 33)
 Bullet = ExtResource("16_bb4pt")
+
+[node name="ZonaNarrador" parent="." instance=ExtResource("27_mwnlj")]
+position = Vector2(174, -66)
+stream = ExtResource("28_cpm5r")
 
 [editable path="HUB"]

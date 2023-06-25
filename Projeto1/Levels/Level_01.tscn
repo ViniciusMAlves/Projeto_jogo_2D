@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://bpkhvoa8ml3m6" path="res://prefabs/transition_in.tscn" id="2_rwsb7"]
 [ext_resource type="Texture2D" uid="uid://34l4u1ayi3pj" path="res://Assets/Scenes/Terrain/Terrain (16x16).png" id="3"]
 [ext_resource type="PackedScene" uid="uid://dvgr06gu4cakb" path="res://prefabs/water.tscn" id="3_ye0yi"]
-[ext_resource type="Texture2D" uid="uid://cx81tpiqvwj01" path="res://Assets/Scenes/Seasonal Tilesets/1 - Grassland/Background parts/3 - Cloud_cover_1.png" id="4"]
 [ext_resource type="Shader" path="res://Levels/cloud.gdshader" id="4_jmjxv"]
 [ext_resource type="PackedScene" uid="uid://dqv84cj4hr24p" path="res://prefabs/FallZone_Water.tscn" id="4_uymgk"]
 [ext_resource type="Texture2D" uid="uid://djojdfr6cs04a" path="res://Assets/Scenes/Seasonal Tilesets/1 - Grassland/Background parts/2 - Hills.png" id="5"]
@@ -15,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://dpm2gg6xqield" path="res://Assets/Scenes/Seasonal Tilesets/1 - Grassland/Background parts/5 - Sky_color.png" id="7"]
 [ext_resource type="PackedScene" uid="uid://eyvx1dns76ia" path="res://Itens/coin.tscn" id="12_vr7wg"]
 [ext_resource type="PackedScene" uid="uid://cuyobqd5hji00" path="res://prefabs/break_box.tscn" id="14_5sjvg"]
+[ext_resource type="Texture2D" uid="uid://cx81tpiqvwj01" path="res://Assets/Scenes/Seasonal Tilesets/1 - Grassland/Background parts/3 - Cloud_cover_1.png" id="14_fynm6"]
 [ext_resource type="PackedScene" uid="uid://cwpyeqyau6y6h" path="res://Itens/coin_rlg.tscn" id="15_7ty1n"]
 [ext_resource type="PackedScene" uid="uid://b3octw38kvvul" path="res://Itens/silaba_vi.tscn" id="15_xtjro"]
 [ext_resource type="PackedScene" uid="uid://bvx0ut2rbs1wt" path="res://Itens/silaba_a.tscn" id="15_y78xf"]
@@ -693,10 +693,11 @@ motion_mirroring = Vector2(576, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/cloud"]
 texture_filter = 1
+texture_repeat = 2
 material = SubResource("ShaderMaterial_vi5ep")
 position = Vector2(-100, -310)
 scale = Vector2(2, 2)
-texture = ExtResource("4")
+texture = ExtResource("14_fynm6")
 centered = false
 
 [node name="cloud_mountain" type="ParallaxLayer" parent="ParallaxBackground"]

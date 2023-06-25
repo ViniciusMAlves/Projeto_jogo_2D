@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://ciqdx7x3gsy1d" path="res://Scenes/Player.tscn" id="7_ph6t6"]
 [ext_resource type="Texture2D" uid="uid://dpm2gg6xqield" path="res://Assets/Scenes/Seasonal Tilesets/1 - Grassland/Background parts/5 - Sky_color.png" id="8_gjn8j"]
 [ext_resource type="Shader" path="res://Levels/cloud.gdshader" id="9_db4al"]
-[ext_resource type="Texture2D" uid="uid://cx81tpiqvwj01" path="res://Assets/Scenes/Seasonal Tilesets/1 - Grassland/Background parts/3 - Cloud_cover_1.png" id="10_feid5"]
 [ext_resource type="Texture2D" uid="uid://draq1firahhus" path="res://Assets/Scenes/Seasonal Tilesets/1 - Grassland/Background parts/4 - Cloud_cover_2.png" id="11_bjtlk"]
 [ext_resource type="Texture2D" uid="uid://djojdfr6cs04a" path="res://Assets/Scenes/Seasonal Tilesets/1 - Grassland/Background parts/2 - Hills.png" id="12_g55q0"]
 [ext_resource type="Texture2D" uid="uid://7wv2f1eafu42" path="res://Assets/Scenes/Seasonal Tilesets/1 - Grassland/Background parts/1 - Foreground_scenery.png" id="13_xvt7d"]
@@ -30,6 +29,7 @@
 [ext_resource type="PackedScene" uid="uid://c0ca4xamsplo7" path="res://prefabs/goal.tscn" id="28_gecmg"]
 [ext_resource type="AudioStream" uid="uid://bwcwcxa50np5f" path="res://Music/Adventure pack 1 ogg/exploration.ogg" id="29_velhq"]
 [ext_resource type="PackedScene" uid="uid://pqq65me2pt8o" path="res://prefabs/checkpoint.tscn" id="30_4hhhh"]
+[ext_resource type="AudioStream" uid="uid://pduqyqa0ik1b" path="res://Sounds/Avisos/falling_plataform.mp3" id="31_mdth2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p7eis"]
 resource_name = "Stone"
@@ -800,7 +800,6 @@ texture_filter = 1
 material = SubResource("ShaderMaterial_vi5ep")
 position = Vector2(-100, -300)
 scale = Vector2(2, 2)
-texture = ExtResource("10_feid5")
 centered = false
 
 [node name="cloud_mountain" type="ParallaxLayer" parent="ParallaxBackground"]
@@ -809,6 +808,7 @@ motion_mirroring = Vector2(576, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/cloud_mountain"]
 texture_filter = 1
+texture_repeat = 2
 position = Vector2(-100, -300)
 scale = Vector2(2, 2)
 texture = ExtResource("11_bjtlk")
@@ -998,5 +998,9 @@ volume_db = -10.0
 autoplay = true
 max_distance = 2e+06
 attenuation = 0.901248
+
+[node name="ZonaNarrador2" parent="." instance=ExtResource("26_siedi")]
+position = Vector2(654, -140)
+stream = ExtResource("31_mdth2")
 
 [editable path="HUB"]
