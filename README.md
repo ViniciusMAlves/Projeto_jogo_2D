@@ -41,7 +41,7 @@ Moedas indicam a sua quantidade, que o personagem coletou até o momento.
 
 # Obstáculos e Elementos Interativo
 
-![Quadro 1](https://github.com/ViniciusMAlves/Projeto_jogo_2D/assets/37082519/327218a8-aca8-44d1-9f7a-4a50b3ae58a2)
+![image](https://github.com/ViniciusMAlves/Projeto_jogo_2D/assets/37082519/d1ba0815-2455-407d-8855-ecd106d1d6eb)
 
 Cada obstáculo é um desafio diferente para o personagem, onde que: 
 * A plataforma suspensa ao pisar cai depois de um tempo, assim o player não pode ficar muito tempo nela, o obrigando a se mover mais rapidamente.
@@ -50,6 +50,10 @@ Cada obstáculo é um desafio diferente para o personagem, onde que:
 * Os espinhos ficam em locais fixos no mapa, para assim dificultar a locomoção do personagem, ao contato ele sofrerá dano. 
 * O Trampolim não dá dano ao personagem, servirá para ajudar na locomoção do personagem onde que ao pular em cima, o trampolim jogará o personagem para o alto, com isso  pode alcançar lugares que ele não conseguiria com um simples pulo. 
 * A água que quando o personagem entrar em contato, ele irá para o último ponto de salvamento acionado no mapa.
+* O Cogumelo é um inimigo que se apenas se move de um lado ao outro, em contato com o personagem ele da dano ao personagem.
+* A Planta é um inimigo estático que ao ver o personagem lança uma semente que causa dano.
+* O Porco Rei é o Boss final do jogo.
+* O Baú misterioso é o objetivo do personagem.
 
 # Ponto de Salvamento
 
