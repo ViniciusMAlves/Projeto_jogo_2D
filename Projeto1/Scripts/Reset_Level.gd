@@ -5,6 +5,7 @@ var checkpoint_pos = Vector2(0, 0)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	Global.sena_atual = path
 	Global.coins = 0
 	Global.silabas = ""
 	if Global.is_dead:

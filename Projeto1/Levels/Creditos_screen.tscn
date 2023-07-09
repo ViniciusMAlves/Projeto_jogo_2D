@@ -3,19 +3,19 @@
 [ext_resource type="Script" path="res://Scripts/CreditosScreen.gd" id="1_w1eda"]
 [ext_resource type="FontFile" uid="uid://cqdrreoeeopoj" path="res://Fonts/Minecraft.ttf" id="2_eau0p"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ps4mt"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ostik"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lkv62"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q2a2c"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yerr3"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ai608"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s2k4t"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vqwkx"]
 bg_color = Color(0, 0, 0, 0)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3xydq"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wl8v8"]
 
 [sub_resource type="Theme" id="Theme_b2x8h"]
 Button/colors/font_color = Color(0, 0, 0, 1)
@@ -35,11 +35,11 @@ Button/constants/h_separation = 0
 Button/constants/outline_size = 0
 Button/font_sizes/font_size = 16
 Button/fonts/font = null
-Button/styles/disabled = SubResource("StyleBoxFlat_ps4mt")
-Button/styles/focus = SubResource("StyleBoxFlat_lkv62")
-Button/styles/hover = SubResource("StyleBoxFlat_yerr3")
-Button/styles/normal = SubResource("StyleBoxFlat_s2k4t")
-Button/styles/pressed = SubResource("StyleBoxFlat_3xydq")
+Button/styles/disabled = SubResource("StyleBoxFlat_ostik")
+Button/styles/focus = SubResource("StyleBoxFlat_q2a2c")
+Button/styles/hover = SubResource("StyleBoxFlat_ai608")
+Button/styles/normal = SubResource("StyleBoxFlat_vqwkx")
+Button/styles/pressed = SubResource("StyleBoxFlat_wl8v8")
 
 [node name="ControlScreen" type="Control"]
 layout_mode = 3
@@ -103,6 +103,6 @@ theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0.772549, 1, 0.152941, 1)
 theme_override_colors/font_focus_color = Color(0.968627, 0.992157, 0, 1)
 theme_override_fonts/font = ExtResource("2_eau0p")
-text = "Return"
+text = "Retornar"
 
 [connection signal="pressed" from="btnReturn" to="." method="_on_btn_return_pressed"]

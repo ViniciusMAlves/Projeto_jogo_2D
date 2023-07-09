@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://cy2eakv2gw3h6"]
+[gd_scene load_steps=35 format=3 uid="uid://cy2eakv2gw3h6"]
 
 [ext_resource type="Script" path="res://Scripts/Reset_Level.gd" id="1_mj1jk"]
 [ext_resource type="PackedScene" uid="uid://dvgr06gu4cakb" path="res://prefabs/water.tscn" id="2_qssb0"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://draq1firahhus" path="res://Assets/Scenes/Seasonal Tilesets/1 - Grassland/Background parts/4 - Cloud_cover_2.png" id="11_bjtlk"]
 [ext_resource type="Texture2D" uid="uid://djojdfr6cs04a" path="res://Assets/Scenes/Seasonal Tilesets/1 - Grassland/Background parts/2 - Hills.png" id="12_g55q0"]
 [ext_resource type="Texture2D" uid="uid://7wv2f1eafu42" path="res://Assets/Scenes/Seasonal Tilesets/1 - Grassland/Background parts/1 - Foreground_scenery.png" id="13_xvt7d"]
+[ext_resource type="Texture2D" uid="uid://cx81tpiqvwj01" path="res://Assets/Scenes/Seasonal Tilesets/1 - Grassland/Background parts/3 - Cloud_cover_1.png" id="15_13rhd"]
 [ext_resource type="PackedScene" uid="uid://b1d8pl3bfcspd" path="res://Scenes/mushroom.tscn" id="15_vlmid"]
 [ext_resource type="PackedScene" uid="uid://bpkhvoa8ml3m6" path="res://prefabs/transition_in.tscn" id="16_o1gee"]
 [ext_resource type="PackedScene" uid="uid://cuyobqd5hji00" path="res://prefabs/break_box.tscn" id="17_m3kte"]
@@ -797,9 +798,11 @@ motion_mirroring = Vector2(576, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/cloud"]
 texture_filter = 1
+texture_repeat = 2
 material = SubResource("ShaderMaterial_vi5ep")
 position = Vector2(-100, -300)
 scale = Vector2(2, 2)
+texture = ExtResource("15_13rhd")
 centered = false
 
 [node name="cloud_mountain" type="ParallaxLayer" parent="ParallaxBackground"]

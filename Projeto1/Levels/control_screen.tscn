@@ -155,6 +155,6 @@ theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0.772549, 1, 0.152941, 1)
 theme_override_colors/font_focus_color = Color(0.968627, 0.992157, 0, 1)
 theme_override_fonts/font = ExtResource("2_4rs27")
-text = "Return"
+text = "Retornar"
 
 [connection signal="pressed" from="btnReturn" to="." method="_on_btn_return_pressed"]

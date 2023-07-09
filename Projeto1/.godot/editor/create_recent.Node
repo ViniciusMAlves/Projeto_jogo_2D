@@ -1,3 +1,5 @@
+Control
+VBoxContainer
 AudioStreamPlayer2D
 Node2D
 Area2D
@@ -5,11 +7,9 @@ AnimationPlayer
 CollisionShape2D
 ColorRect
 TextureRect
-Control
 Button
 TextureButton
 Label
-VBoxContainer
 AudioStreamPlayer3D
 TileMap
 StaticBody2D

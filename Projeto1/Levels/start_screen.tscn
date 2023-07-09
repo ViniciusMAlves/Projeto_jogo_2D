@@ -108,7 +108,7 @@ theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0.772549, 1, 0.152941, 1)
 theme_override_colors/font_focus_color = Color(0.968627, 0.992157, 0, 1)
 theme_override_fonts/font = ExtResource("4_3162m")
-text = "Start"
+text = "Iniciar"
 
 [node name="btnControls" type="Button" parent="controls"]
 texture_filter = 1
@@ -119,7 +119,7 @@ theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0.772549, 1, 0.152941, 1)
 theme_override_colors/font_focus_color = Color(0.968627, 0.992157, 0, 1)
 theme_override_fonts/font = ExtResource("4_3162m")
-text = "Controls"
+text = "Controles"
 
 [node name="btnQuit" type="Button" parent="controls"]
 texture_filter = 1
@@ -130,7 +130,7 @@ theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0.772549, 1, 0.152941, 1)
 theme_override_colors/font_focus_color = Color(0.968627, 0.992157, 0, 1)
 theme_override_fonts/font = ExtResource("4_3162m")
-text = "Quit"
+text = "Sair"
 
 [node name="btnCreditos" type="Button" parent="controls"]
 texture_filter = 1
