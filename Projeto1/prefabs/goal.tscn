@@ -49,7 +49,7 @@ hue_variation_curve = SubResource("CurveTexture_sd1y5")
 size = Vector2(32, 43)
 
 [node name="Goal" type="Area2D"]
-collision_layer = 16
+collision_layer = 24
 script = ExtResource("1_8suqd")
 
 [node name="confete" type="GPUParticles2D" parent="."]

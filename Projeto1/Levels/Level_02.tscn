@@ -670,6 +670,10 @@ position = Vector2(4848, 38)
 position = Vector2(5033, 134)
 scale = Vector2(4.4, 6.56)
 
+[node name="fall_zone2" parent="Water" instance=ExtResource("3_v17ec")]
+position = Vector2(1292, 98)
+scale = Vector2(2.76, 2)
+
 [node name="TileMap" type="TileMap" parent="."]
 texture_filter = 1
 tile_set = SubResource("TileSet_evxh2")
